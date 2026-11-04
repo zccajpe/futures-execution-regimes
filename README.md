@@ -1,57 +1,68 @@
-# futures-execution-regimes
-成果围绕期货母单的执行方式与执行时长选择，复用 PandaData 历史分钟量价，在同一构造母单和统一口径下比较 ASAP、TWAP 与按量调度的成本、完成率、残余头寸和价格风险，形成研究报告、可复用工程文件，以及已注册到 QuantStudio 的执行决策 skill。该 skill 根据订单规模、完成期限、风险预算和业务目标，返回执行方法、计划释放时长及取舍理由；依据不足时给出条件分析或具体待补信息，部分目标可判断时仍能提供计划
+# 期货母单执行计划
 
-## 目录
+给定一笔已经决定买卖的期货订单，这个 skill 比较立即释放全部数量（ASAP）、按时间均分（TWAP）和按历史分钟成交量分批（SHAPE）。它返回执行方法、计划释放时长、预计成本、完成率、价格风险和理由。输出用于研究判断。
 
-| 路径 | 内容 |
+**公开交付版 1.0.0** · 技能名 `futures-execution-decision`。包版本写在技能声明的 `metadata.version`。要复用完全相同的文件，请记录 `git rev-parse HEAD` 的提交号。QuantStudio 会给实际安装的文件另分配本机版本 ID。[技能声明](skills/futures-execution-decision/SKILL.md)
+
+研究中，分批可以用更长等待换取更低的**模型**成本。真实冲击尚未标定，已测试的市场状态规则也未达到替换冻结基准的标准。报告用同一批订单量化了这两项判断。[最终报告与证据](research/REPORT.md)
+
+## 安装 Python 依赖
+
+准备 Git 和 Python 3.10 或更高版本。要在 QuantStudio 使用，请先在其**当前工作区**打开终端，再执行以下命令。独立使用命令行时可以选任意目录。
+
+~~~sh
+git clone https://github.com/zccajpe/futures-execution-regimes.git
+cd futures-execution-regimes
+python3 -m venv .venv
+.venv/bin/python -m pip install -r skills/futures-execution-decision/requirements.txt
+~~~
+
+运行依赖只有 NumPy。下文命令都从仓库根目录执行。Windows 可使用 Git Bash，将 `python3` 换成 `py -3`，将 `.venv/bin/python` 换成 `.venv/Scripts/python.exe`。
+
+## 跑通第一笔订单
+
+下面两条命令先在新目录 `demo/` 创建合成分钟数据和一份请求，再用正式入口写出完整计划。演示可离线运行，无需行情或模型密钥。重新生成时请选择新的演示目录。
+
+~~~sh
+.venv/bin/python skills/futures-execution-decision/examples/make_demo.py demo
+.venv/bin/python skills/futures-execution-decision/scripts/preference_plan.py --request demo/request.json --out demo/plan.json
+~~~
+
+这笔合成买单是 60 手。调用者要求在 15 个交易分钟内完成，并把成本放在首位。每分钟成交量固定为 100 手，模型容量为其中的 10%。ASAP 在第 1 分钟释放全部目标，仍需 6 分钟才能成交完。TWAP 每分钟释放 6 手，持续 10 分钟。两者都完成全部数量，模型成本分别为 6.30 和 4.30 bp。这里 1 bp 是名义金额的万分之一。均匀成交量使按量分批与同长度 TWAP 并列，程序返回 TWAP。
+
+终端摘要应含 `plan_method="twap"` 和 `plan_h=10`。打开 `demo/plan.json`，可在 `plan.reason` 读到理由，在 `candidates` 对照其他方法。合成数据仅用于验证安装。使用自己的订单时，复制请求，填写手数、期限、风险预算，并将 `history_npz` 指向自己有权使用的分钟历史。相对路径从**请求文件所在目录**解析。[请求模板](skills/futures-execution-decision/examples/request.json) · [字段、数据格式与空计划处理](skills/futures-execution-decision/references/contract.md)
+
+## 在 QuantStudio 安装和调用
+
+以下使用 QuantStudio 0.1.36 的本地技能创作流程。先按上文把仓库克隆到当前工作区，并准备好 Python 环境和演示请求。
+
+1. 将当前 Git 提交中的**完整技能目录**提取到一个新草稿。下面的命令只复制版本控制中的文件。若同名草稿已存在，请使用一个新的目录名，并在下一步填入相同的名字。
+
+   ~~~sh
+   mkdir -p ../quantskills-drafts/skill
+   mkdir ../quantskills-drafts/skill/futures-execution-decision-1.0.0 && git archive HEAD:skills/futures-execution-decision | tar -x -C ../quantskills-drafts/skill/futures-execution-decision-1.0.0
+   ~~~
+
+2. 打开 **技能 → AI 创建技能**。在创作会话中粘贴下面这句话。
+
+   > 请按原样导入当前工作区的 `quantskills-drafts/skill/futures-execution-decision-1.0.0`。该目录已经包含完整的 SKILL.md、脚本和冻结参数。直接用 `quantskills_asset_draft` 对此目录执行 `prepare`，展示确认卡。
+
+3. 核对卡片上的 `skill-futures-execution-decision`，点击 **生成并开始**。如果只点了 **确认生成**，可以从 **技能 → 我的创建** 找到该技能并开始对话。
+4. 在**新建的技能会话**中粘贴下面的调用示例。把请求路径换成自己的文件，即可处理其他订单。
+
+   > 用当前会话已安装的 futures-execution-decision 读取工作区内 `futures-execution-regimes/demo/request.json`。用该仓库 .venv 中的 Python 运行技能的 `scripts/preference_plan.py`，把完整结果写到 `futures-execution-regimes/demo/quantstudio-plan.json`。告诉我选什么方法、计划释放多久、为什么。若没有可用计划，指出缺项或哪条约束未通过。
+
+平台安装的单位是 `skills/futures-execution-decision/` 整个目录。技能许可随包分发。[包目录](skills/futures-execution-decision/) · [LICENSE](skills/futures-execution-decision/LICENSE)
+
+## 核对研究或验证自己的安装
+
+| 目的 | 入口 |
 |---|---|
-| [`REPORT.md`](REPORT.md) | 既有结果整合报告：三层证据、边界与未决（经济结果截至 2026-11-03，接口 2026-11-04 更新） |
-| [`delivery/futures-execution-decision/`](delivery/futures-execution-decision/) | 可复用技能包：`SKILL.md`、`scripts/`、`data/`、`tests/`、`examples/`、`LICENSE` |
-| [`RESULTS_DETAIL.md`](RESULTS_DETAIL.md)、[`results/`](results/) | 结果明细、配对指标、成本归因与条件包络表 |
-| [`decision_research/`](decision_research/)、[`exante_policy_20261022/`](exante_policy_20261022/)、[`volume_activity_20261022/`](volume_activity_20261022/) | 六配置规则评价、事前选型研究、活跃度预测与执行价值 |
-| [`plan_recovery_20261104/`](plan_recovery_20261104/)、[`skill_simplification_20261103/`](skill_simplification_20261103/)、[`skill_walkthrough_20261103/`](skill_walkthrough_20261103/) | 接口行为验证、简化记录与调用走查 |
-| [`architecture_20261103/`](architecture_20261103/)、[`jev_diagnostic_20261026/`](jev_diagnostic_20261026/)、[`jev_assisted_20261022/`](jev_assisted_20261022/) | 证据对照与 Jev 相关诊断结论 |
-| [`scripts/`](scripts/)、[`ENGINEERING.md`](ENGINEERING.md)、[`DATA_COVERAGE.md`](DATA_COVERAGE.md) | 取数、对齐、回放脚本与数据覆盖说明 |
-| [`DATA_PREPARATION.md`](DATA_PREPARATION.md) | 数据格式、本地准备要求与授权边界 |
+| 看哪种条件支持分批、证据有多大 | [最终报告](research/REPORT.md)及其段末的原始聚合表 |
+| 看真实历史案例中的输入、选择和回退理由 | [十组固定调用记录](research/evidence/skill-cases.json)，其中的母单为研究构造 |
+| 运行原有 111 项回归检查 | 先按[数据与测试说明](skills/futures-execution-decision/references/contract.md#回归测试)准备三份授权分钟数据，再运行下面的命令 |
+| 查早期推演、批量取数和研究脚本的来源 | [整理前的固定提交](https://github.com/zccajpe/futures-execution-regimes/tree/98dc73bc73c162b3839981435dcd0c1b043457dc) |
 
-## 研究问题与可靠负结果
-
-**问题：** 一笔已经决定要做的母单，什么时候应该从 ASAP 改成 TWAP 或按历史成交量分批？
-
-**成立的条件结论：** 在给定的完成门槛、风险预算与冲击情景内，拉长计划释放时长可以降低模型总成本；该取舍在多品种样本中成立，但只在所声明的情景内成立。成本差异主要来自假设冲击项，冲击系数 `a` 未标定，所以模型里的"省"不是已实现收益。
-
-**成立的负结果：** 已测试的事前调度规则（9 桶方向×波动规则 P、滚动规则 B、状态规则 C，以及活跃度加权选型 ACT）**都没有获得相对冻结基准 A 的采用证据**：成本差异区间跨零或不足 0.5bp，或风险门槛不通过。事前活跃度能改善当日 60 分钟总量预测（归一化绝对误差 −15.9% 验证 / −19.4% 留出），但没有转化成更好的执行选择。这是规则层面的负结果，不是"市场没有优势"。
-
-## 技能输入输出
-
-输入一份请求 JSON：母单（`symbol`、`side`、`qty_lots`、`release_trading_date`、`release_label`）、`Dmax_trading_minutes`（业务最晚期限，`1..60`）、`history_npz`（释放日之前最近 20 个交易日的分钟历史）、`constraints`（`risk_sd_budget_bp` 必填，`min_completion_probability` 默认 0.95、`max_unfilled_lots` 默认 0），可选 `scenario`（`cap_frac` 0.10、`fee_spread_bp` 1.3、`impact_a_bp`、`phi` 1.0、`terminal_price_change_bp` 0.0）与可选 `preference`（`cost_first` / `wait_first` / 未明确）。
-
-输出：`status`、`choice`（`decision.py` 原有的条件最优，语义不变）、`method`、`h`，以及按偏好给出的 `plan`（方法、`h`、预测成本、等待负担、完成率、风险）、`candidates`、`effective_constraints` 与中文理由。常量：`execution_action=NONE`、`production_eligibility=INSUFFICIENT`，不连接任何交易接口，不是下单许可。
-
-`h` 是计划释放时长，**不保证在 `h` 内完成**；`completion` 是 20 条历史路径中残余不超上限的比例，不是校准过的成交概率。
-
-## 运行入口
-
-以下命令都在 `delivery/futures-execution-decision/` 目录内执行，全部使用相对路径。
-
-```bash
-# 主入口：带偏好路由的计划
-python3 scripts/preference_plan.py --request tests/fixtures/compare_cost_first.json --out /tmp/plan.json
-
-# 原有入口
-python3 scripts/decision.py --request examples/request_compare.json --out /tmp/compare.json
-python3 scripts/decision.py --request examples/request_baseline_first.json --out /tmp/baseline.json
-
-# 单元测试
-python3 -m unittest discover -s tests -v
-```
-
-`examples/` 与 `tests/fixtures/` 下的请求都指向释放前 20 个交易日的分钟历史 NPZ，**这些 NPZ 不随本仓库分发**，需要使用者按 [`DATA_PREPARATION.md`](DATA_PREPARATION.md) 用自有授权数据准备到同名路径。没有这些文件时请求返回 `INSUFFICIENT_DATA` 并说明缺项，不会静默改用别的品种或窗口；因此**未准备数据的 clone 不能声称开箱复现**，只有脚本、`data/`、`references/` 与 `SKILL.md` 的接口行为可以直接阅读。
-
-## 数据与许可边界
-
-- **不分发原始行情数据。** 本仓库不含 PandaData 分钟行情、NPZ/NPY 派生数组、数据库文件、账户或委托成交回执；这些都需要使用者自备数据授权，`.gitignore` 已按类型排除。
-- **技能调用不取数。** 所有技能出口恒为 `execution_action=NONE`，不交易、不连接账户；技能只读调用者已提供的历史 NPZ，不会自行取数或补数。
-- **仓库内含取数工具，但默认不运行。** [`scripts/fetch_min.mjs`](scripts/fetch_min.mjs) 与 [`scripts/make_minute_tasks.py`](scripts/make_minute_tasks.py) 是研究阶段使用的 PandaData 分钟取数入口。它们只在你显式执行、且你自己已具备该供应商授权与本地 headless client 配置时才会发出请求；本仓库不附带凭据、不预置配置，也不会自动调用。
-- **许可证只覆盖技能包。** [`delivery/futures-execution-decision/LICENSE`](delivery/futures-execution-decision/LICENSE) 是该技能包自身原有的 GPLv3 文本，本次分发未改动。仓库根目录不另设整体许可，研究文档、结果表与脚本的使用条款由权利方另行决定。
-- **Python 依赖**见 [`requirements.txt`](requirements.txt)：核心只用 NumPy。
+~~~sh
+.venv/bin/python -m unittest discover -s skills/futures-execution-decision/tests -v
+~~~
