@@ -1,0 +1,385 @@
+{
+  "primary": {
+    "a": 0.5,
+    "k": 1.0
+  },
+  "coverage": {
+    "val": {
+      "units_total": 15228,
+      "units_in_E": 10091,
+      "unit_sides_total": 30456,
+      "unit_sides_in_E": 20182,
+      "share_sides_in_E": 0.6626608878381928,
+      "unit_sides_E_with_A": 17460,
+      "share_E_with_A": 0.8651273411951244,
+      "unit_sides_E_with_rule": 20182,
+      "share_E_with_rule": 1.0,
+      "rule_no_plan_in_E": 0,
+      "E_non_asap_share": 0.044495094638787036
+    },
+    "test": {
+      "units_total": 29088,
+      "units_in_E": 19172,
+      "unit_sides_total": 58176,
+      "unit_sides_in_E": 38344,
+      "share_sides_in_E": 0.6591034103410341,
+      "unit_sides_E_with_A": 33282,
+      "share_E_with_A": 0.8679845608178594,
+      "unit_sides_E_with_rule": 38344,
+      "share_E_with_rule": 1.0,
+      "rule_no_plan_in_E": 0,
+      "E_non_asap_share": 0.041727519298977674
+    }
+  },
+  "verdict_primary": {
+    "val": {
+      "ASAP": {
+        "C1_cost_improvement": false,
+        "C2_ci_upper_below_zero": true,
+        "C3_completion_not_down_1pp": true,
+        "C4_sd_ratio_le_1_10": true,
+        "pass": false
+      },
+      "A": {
+        "C1_cost_improvement": false,
+        "C2_ci_upper_below_zero": false,
+        "C3_completion_not_down_1pp": true,
+        "C4_sd_ratio_le_1_10": true,
+        "pass": false
+      },
+      "both_benchmarks_pass": false
+    },
+    "test": {
+      "ASAP": {
+        "C1_cost_improvement": false,
+        "C2_ci_upper_below_zero": true,
+        "C3_completion_not_down_1pp": true,
+        "C4_sd_ratio_le_1_10": true,
+        "pass": false
+      },
+      "A": {
+        "C1_cost_improvement": false,
+        "C2_ci_upper_below_zero": false,
+        "C3_completion_not_down_1pp": true,
+        "C4_sd_ratio_le_1_10": true,
+        "pass": false
+      },
+      "both_benchmarks_pass": false
+    },
+    "overall_pass": false
+  },
+  "results": {
+    "val": {
+      "P-ASAP": {
+        "n": 20182,
+        "n_dates": 39,
+        "mean_diff_bp": -0.006885444944831003,
+        "boot": {
+          "n_blocks": 8,
+          "mean": -0.006885444944831003,
+          "ci": [
+            -0.008192567672589468,
+            -0.005817497347820802
+          ],
+          "estimand": "sum(block pair differences) / sum(block order counts) over 5-day blocks of the whole split",
+          "block_sums": [
+            -12.61722269173277,
+            -14.388544956005788,
+            -20.702307848138574,
+            -25.92745827473646,
+            -15.335781796544632,
+            -15.155137509798447,
+            -15.571852166211578,
+            -19.26374463341104
+          ],
+          "block_ns": [
+            2468,
+            2618,
+            2632,
+            2596,
+            2636,
+            2654,
+            2490,
+            2088
+          ]
+        },
+        "attribution": {
+          "price": 0.0,
+          "fee": -2.611966808218427e-06,
+          "impact": -0.006882832978022784
+        },
+        "completion_rule": 0.995540580715489,
+        "completion_bench": 0.995540580715489,
+        "completion_diff_pp": 0.0,
+        "price_sd_rule": 10.485730755245479,
+        "price_sd_bench": 10.451986201906276,
+        "sd_ratio": 1.0032285302226143,
+        "resid_rule_mean": 0.0009095221395450297,
+        "resid_rule_p95": 0.0,
+        "resid_bench_mean": 0.0009078281531121671,
+        "resid_bench_p95": 0.0,
+        "attribution_by_side": {
+          "buy": {
+            "n": 10091,
+            "mean_diff_bp": -0.009998690770265956,
+            "price": -0.0031132458254349536,
+            "fee": -2.611966808218427e-06,
+            "impact": -0.006882832978022785,
+            "price_sd_rule": 10.484779052191762,
+            "price_sd_bench": 10.451076770903427
+          },
+          "sell": {
+            "n": 10091,
+            "mean_diff_bp": -0.0037721991193960477,
+            "price": 0.0031132458254349536,
+            "fee": -2.611966808218427e-06,
+            "impact": -0.006882832978022785,
+            "price_sd_rule": 10.484779052191762,
+            "price_sd_bench": 10.451076770903427
+          }
+        },
+        "note_price_cancellation": "with rho=0 both sides use the same arm, so the pooled mean price difference can cancel by construction; read attribution_by_side, not the pooled price figure"
+      },
+      "P-A": {
+        "n": 17460,
+        "n_dates": 39,
+        "mean_diff_bp": 0.0013683608412167927,
+        "boot": {
+          "n_blocks": 8,
+          "mean": 0.0013683608412167934,
+          "ci": [
+            -0.002749199358019044,
+            0.0064506380680643014
+          ],
+          "estimand": "sum(block pair differences) / sum(block order counts) over 5-day blocks of the whole split",
+          "block_sums": [
+            -12.674970209880572,
+            2.0064344728620345,
+            36.615021896396954,
+            -9.289005183376089,
+            2.716162968793131,
+            -11.179792217569815,
+            11.678968815029505,
+            4.018759745390067
+          ],
+          "block_ns": [
+            2132,
+            2248,
+            2278,
+            2268,
+            2278,
+            2280,
+            2158,
+            1818
+          ]
+        },
+        "attribution": {
+          "price": -0.0006672373708097685,
+          "fee": 4.6307714995487895e-07,
+          "impact": 0.002035135134876606
+        },
+        "completion_rule": 0.9983963344788087,
+        "completion_bench": 0.9983963344788087,
+        "completion_diff_pp": 0.0,
+        "price_sd_rule": 9.452208636289734,
+        "price_sd_bench": 9.451150299194872,
+        "sd_ratio": 1.0001119797126656,
+        "resid_rule_mean": 0.00030602729070947256,
+        "resid_rule_p95": 0.0,
+        "resid_bench_mean": 0.00030602729070947256,
+        "resid_bench_p95": 0.0,
+        "attribution_by_side": {
+          "buy": {
+            "n": 8730,
+            "mean_diff_bp": 0.007503526245748692,
+            "price": 0.002894894551921323,
+            "fee": 3.7633629174987285e-07,
+            "impact": 0.00460825535753562,
+            "price_sd_rule": 9.45212462762814,
+            "price_sd_bench": 9.458994879275194
+          },
+          "sell": {
+            "n": 8730,
+            "mean_diff_bp": -0.004766804563315107,
+            "price": -0.0042293692935408585,
+            "fee": 5.498180081598851e-07,
+            "impact": -0.0005379850877824077,
+            "price_sd_rule": 9.45212462762814,
+            "price_sd_bench": 9.443067776867007
+          }
+        },
+        "note_price_cancellation": "with rho=0 both sides use the same arm, so the pooled mean price difference can cancel by construction; read attribution_by_side, not the pooled price figure"
+      }
+    },
+    "test": {
+      "P-ASAP": {
+        "n": 38344,
+        "n_dates": 74,
+        "mean_diff_bp": -0.007215452819669133,
+        "boot": {
+          "n_blocks": 15,
+          "mean": -0.007215452819669131,
+          "ci": [
+            -0.009379857315248099,
+            -0.005074317401390283
+          ],
+          "estimand": "sum(block pair differences) / sum(block order counts) over 5-day blocks of the whole split",
+          "block_sums": [
+            -11.118741849467295,
+            -7.656432914747655,
+            -11.124046068424375,
+            -28.310063493573715,
+            -16.165334861739424,
+            -1.0857395642670928,
+            -25.32651365313538,
+            -31.44884141583121,
+            -28.702424164034987,
+            -29.01865429596312,
+            -34.29745934976246,
+            -3.120383768158474,
+            -12.565012833385545,
+            -31.494814127226945,
+            -5.234860557675541
+          ],
+          "block_ns": [
+            2592,
+            2594,
+            2606,
+            2614,
+            2622,
+            2644,
+            2616,
+            2622,
+            2620,
+            2598,
+            2612,
+            2610,
+            2468,
+            2460,
+            2066
+          ]
+        },
+        "attribution": {
+          "price": 0.0,
+          "fee": 8.719271909316664e-07,
+          "impact": -0.007216324746860063
+        },
+        "completion_rule": 0.9944189442937618,
+        "completion_bench": 0.9944189442937618,
+        "completion_diff_pp": 0.0,
+        "price_sd_rule": 11.424564639014651,
+        "price_sd_bench": 11.406990041852541,
+        "sd_ratio": 1.0015406866401766,
+        "resid_rule_mean": 0.0009443776935785865,
+        "resid_rule_p95": 0.0,
+        "resid_bench_mean": 0.0009443776935785865,
+        "resid_bench_p95": 0.0,
+        "attribution_by_side": {
+          "buy": {
+            "n": 19172,
+            "mean_diff_bp": -0.0005083205817322038,
+            "price": 0.006707132237936929,
+            "fee": 8.719271909316664e-07,
+            "impact": -0.007216324746860061,
+            "price_sd_rule": 11.42196933116878,
+            "price_sd_bench": 11.404241036292625
+          },
+          "sell": {
+            "n": 19172,
+            "mean_diff_bp": -0.013922585057606062,
+            "price": -0.006707132237936929,
+            "fee": 8.719271909316664e-07,
+            "impact": -0.007216324746860061,
+            "price_sd_rule": 11.42196933116878,
+            "price_sd_bench": 11.404241036292625
+          }
+        },
+        "note_price_cancellation": "with rho=0 both sides use the same arm, so the pooled mean price difference can cancel by construction; read attribution_by_side, not the pooled price figure"
+      },
+      "P-A": {
+        "n": 33282,
+        "n_dates": 74,
+        "mean_diff_bp": -0.001794263904606083,
+        "boot": {
+          "n_blocks": 15,
+          "mean": -0.001794263904606082,
+          "ci": [
+            -0.008223357157485634,
+            0.0034420914732929877
+          ],
+          "estimand": "sum(block pair differences) / sum(block order counts) over 5-day blocks of the whole split",
+          "block_sums": [
+            9.970615256140459,
+            11.670642382716201,
+            3.2214711906627507,
+            1.6708691904650799,
+            14.096443854376991,
+            10.278885512874272,
+            -59.93659384239924,
+            -0.2111804484593609,
+            19.06875948998562,
+            -10.343705121388739,
+            -74.72696868513047,
+            0.5497048989967652,
+            11.654047322275987,
+            -6.418154480234467,
+            9.738472206018535
+          ],
+          "block_ns": [
+            2260,
+            2250,
+            2258,
+            2268,
+            2278,
+            2274,
+            2266,
+            2268,
+            2270,
+            2244,
+            2274,
+            2280,
+            2148,
+            2144,
+            1800
+          ]
+        },
+        "attribution": {
+          "price": -0.0031420147099232303,
+          "fee": 2.9711934022058383e-07,
+          "impact": 0.0013474536859769295
+        },
+        "completion_rule": 0.9979568535544739,
+        "completion_bench": 0.9979568535544739,
+        "completion_diff_pp": 0.0,
+        "price_sd_rule": 10.356958950439909,
+        "price_sd_bench": 10.369440988397196,
+        "sd_ratio": 0.9987962670339458,
+        "resid_rule_mean": 0.00030249242137654896,
+        "resid_rule_p95": 0.0,
+        "resid_bench_mean": 0.00030249242137654896,
+        "resid_bench_p95": 0.0,
+        "attribution_by_side": {
+          "buy": {
+            "n": 16641,
+            "mean_diff_bp": 0.0035309647014542273,
+            "price": -0.0008564813236096804,
+            "fee": -1.1134257206932977e-07,
+            "impact": 0.0043875573676359775,
+            "price_sd_rule": 10.354494432702957,
+            "price_sd_bench": 10.372276596134942
+          },
+          "sell": {
+            "n": 16641,
+            "mean_diff_bp": -0.007119492510666392,
+            "price": -0.0054275480962367815,
+            "fee": 7.055812525104975e-07,
+            "impact": -0.001692649995682119,
+            "price_sd_rule": 10.354494432702957,
+            "price_sd_bench": 10.361577046976691
+          }
+        },
+        "note_price_cancellation": "with rho=0 both sides use the same arm, so the pooled mean price difference can cancel by construction; read attribution_by_side, not the pooled price figure"
+      }
+    }
+  }
+}

@@ -1,4 +1,0 @@
-comparison,n_cases,n_sign_flips,share_flips
-asap0_minus_twap60,3436,84,0.0244
-asap0_minus_shape60,3436,74,0.0215
-twap60_minus_shape60,3436,121,0.0352
