@@ -1,0 +1,704 @@
+{
+ "stage": "volume_activity_20261022_stage2",
+ "beta": 0.5232982690757275,
+ "scenario": {
+  "a_bp": 0.5,
+  "k": 1.0,
+  "cap": 0.1,
+  "fee": 1.3,
+  "phi": 1.0,
+  "rho": 0.0
+ },
+ "rule": "ACT = arm_stats(V*s) + choose ; VOL20 = pred_cache + choose ; realised from the existing cap-10 replay cache",
+ "coverage": {
+  "val": {
+   "E_units": 20182,
+   "E_with_A": 17460,
+   "act_planned": 19528,
+   "act_missing": 654,
+   "act_coverage": 0.9675948865325538,
+   "vol20_non_asap": 898,
+   "act_non_asap": 830
+  },
+  "test": {
+   "E_units": 38344,
+   "E_with_A": 33282,
+   "act_planned": 37118,
+   "act_missing": 1226,
+   "act_coverage": 0.9680262883371583,
+   "vol20_non_asap": 1600,
+   "act_non_asap": 1446
+  }
+ },
+ "evaluation": {
+  "val": {
+   "E_units": 20182,
+   "E_with_A": 17460,
+   "act_planned": 19528,
+   "act_missing": 654,
+   "act_coverage": 0.9675948865325538,
+   "ACT_vs_ASAP": {
+    "n_pairs": 19528,
+    "n_dates": 39,
+    "mean_diff_bp": -0.004813521655663655,
+    "bootstrap": {
+     "n_blocks": 8,
+     "mean": -0.004813521655663654,
+     "ci": [
+      -0.006797143122515801,
+      -0.003107488301081006
+     ],
+     "block_ns": [
+      2364,
+      2524,
+      2518,
+      2538,
+      2552,
+      2562,
+      2418,
+      2052
+     ],
+     "estimand": "sum(block paired costs)/sum(block counts) over 5-day blocks"
+    },
+    "attribution": {
+     "price": 0.0,
+     "fee": 2.1821753581107413e-07,
+     "impact": -0.004813739873199465
+    },
+    "attribution_by_side": {
+     "buy": {
+      "n": 9764,
+      "mean_diff_bp": -0.003134925226347431,
+      "price": 0.001678596429316223,
+      "fee": 2.1821753581107413e-07,
+      "impact": -0.004813739873199465
+     },
+     "sell": {
+      "n": 9764,
+      "mean_diff_bp": -0.006492118084979877,
+      "price": -0.001678596429316223,
+      "fee": 2.1821753581107413e-07,
+      "impact": -0.004813739873199465
+     }
+    },
+    "completion_rule": 0.9983613273248668,
+    "completion_bench": 0.9983613273248668,
+    "completion_diff_pp": 0.0,
+    "sd_ratio": 1.0009686138486753,
+    "resid_rule_mean": 0.0003037753082600074,
+    "resid_bench_mean": 0.0003037753082600074
+   },
+   "ACT_vs_A": {
+    "n_pairs": 17192,
+    "n_dates": 39,
+    "mean_diff_bp": 0.003729561870783445,
+    "bootstrap": {
+     "n_blocks": 8,
+     "mean": 0.003729561870783446,
+     "ci": [
+      -0.0007174270099564834,
+      0.010099103527983676
+     ],
+     "block_ns": [
+      2098,
+      2216,
+      2232,
+      2238,
+      2246,
+      2240,
+      2126,
+      1796
+     ],
+     "estimand": "sum(block paired costs)/sum(block counts) over 5-day blocks"
+    },
+    "attribution": {
+     "price": -0.0001558166802451818,
+     "fee": 5.705868754442976e-07,
+     "impact": 0.0038848079641531827
+    },
+    "attribution_by_side": {
+     "buy": {
+      "n": 8596,
+      "mean_diff_bp": 0.010668987803345695,
+      "price": 0.0042333131308636834,
+      "fee": 5.503307070126967e-07,
+      "impact": 0.006435124341775001
+     },
+     "sell": {
+      "n": 8596,
+      "mean_diff_bp": -0.003209864061778803,
+      "price": -0.004544946491354047,
+      "fee": 5.908430438758984e-07,
+      "impact": 0.0013344915865313664
+     }
+    },
+    "completion_rule": 0.9986040018613308,
+    "completion_bench": 0.9986040018613308,
+    "completion_diff_pp": 0.0,
+    "sd_ratio": 0.9989862720512486,
+    "resid_rule_mean": 0.0002616780219158676,
+    "resid_bench_mean": 0.0002616780219158676
+   },
+   "ACT_vs_VOL20": {
+    "n_pairs": 19528,
+    "n_dates": 39,
+    "mean_diff_bp": 0.0021161227310990895,
+    "bootstrap": {
+     "n_blocks": 8,
+     "mean": 0.002116122731099089,
+     "ci": [
+      0.0006558078170140869,
+      0.0036890921750799364
+     ],
+     "block_ns": [
+      2364,
+      2524,
+      2518,
+      2538,
+      2552,
+      2562,
+      2418,
+      2052
+     ],
+     "estimand": "sum(block paired costs)/sum(block counts) over 5-day blocks"
+    },
+    "attribution": {
+     "price": 0.0,
+     "fee": 7.380215432639319e-07,
+     "impact": 0.0021153847095558252
+    },
+    "attribution_by_side": {
+     "buy": {
+      "n": 9764,
+      "mean_diff_bp": 0.0077932115254353024,
+      "price": 0.005677088794336213,
+      "fee": 7.380215432639319e-07,
+      "impact": 0.0021153847095558252
+     },
+     "sell": {
+      "n": 9764,
+      "mean_diff_bp": -0.0035609660632371235,
+      "price": -0.005677088794336213,
+      "fee": 7.380215432639319e-07,
+      "impact": 0.0021153847095558252
+     }
+    },
+    "completion_rule": 0.9983613273248668,
+    "completion_bench": 0.9983613273248668,
+    "completion_diff_pp": 0.0,
+    "sd_ratio": 0.9975320012357788,
+    "resid_rule_mean": 0.0003037753082600074,
+    "resid_bench_mean": 0.0003037753082600074,
+    "selection_changed": 380,
+    "method_changed": 380,
+    "h_changed": 216,
+    "actual_q_path_changed": 106
+   },
+   "vol20_non_asap": 898,
+   "act_non_asap": 830
+  },
+  "test": {
+   "E_units": 38344,
+   "E_with_A": 33282,
+   "act_planned": 37118,
+   "act_missing": 1226,
+   "act_coverage": 0.9680262883371583,
+   "ACT_vs_ASAP": {
+    "n_pairs": 37118,
+    "n_dates": 74,
+    "mean_diff_bp": -0.006423425197163815,
+    "bootstrap": {
+     "n_blocks": 15,
+     "mean": -0.006423425197163815,
+     "ci": [
+      -0.00826327946816954,
+      -0.004764576559803204
+     ],
+     "block_ns": [
+      2518,
+      2536,
+      2522,
+      2558,
+      2550,
+      2488,
+      2478,
+      2552,
+      2586,
+      2552,
+      2562,
+      2504,
+      2360,
+      2372,
+      1980
+     ],
+     "estimand": "sum(block paired costs)/sum(block counts) over 5-day blocks"
+    },
+    "attribution": {
+     "price": 0.0,
+     "fee": 3.401059729795942e-07,
+     "impact": -0.006423765303136795
+    },
+    "attribution_by_side": {
+     "buy": {
+      "n": 18559,
+      "mean_diff_bp": -0.0038072254050126714,
+      "price": 0.0026161997921511433,
+      "fee": 3.401059729795942e-07,
+      "impact": -0.006423765303136795
+     },
+     "sell": {
+      "n": 18559,
+      "mean_diff_bp": -0.009039624989314961,
+      "price": -0.0026161997921511433,
+      "fee": 3.401059729795942e-07,
+      "impact": -0.006423765303136795
+     }
+    },
+    "completion_rule": 0.9978985936742282,
+    "completion_bench": 0.9978985936742282,
+    "completion_diff_pp": 0.0,
+    "sd_ratio": 1.0014429715024729,
+    "resid_rule_mean": 0.00032685549559755483,
+    "resid_bench_mean": 0.00032685549559755483
+   },
+   "ACT_vs_A": {
+    "n_pairs": 32710,
+    "n_dates": 74,
+    "mean_diff_bp": -0.0009054889923708882,
+    "bootstrap": {
+     "n_blocks": 15,
+     "mean": -0.0009054889923708887,
+     "ci": [
+      -0.007036826125477448,
+      0.003826402106307273
+     ],
+     "block_ns": [
+      2232,
+      2236,
+      2216,
+      2250,
+      2240,
+      2170,
+      2178,
+      2226,
+      2248,
+      2224,
+      2248,
+      2226,
+      2104,
+      2128,
+      1784
+     ],
+     "estimand": "sum(block paired costs)/sum(block counts) over 5-day blocks"
+    },
+    "attribution": {
+     "price": -0.003196959143248699,
+     "fee": -3.0124219555033026e-07,
+     "impact": 0.0022917713930733614
+    },
+    "attribution_by_side": {
+     "buy": {
+      "n": 16355,
+      "mean_diff_bp": -0.00012988625902092126,
+      "price": -0.005514206801326787,
+      "fee": -7.16846884172553e-07,
+      "impact": 0.005385037389190037
+     },
+     "sell": {
+      "n": 16355,
+      "mean_diff_bp": -0.001681091725720857,
+      "price": -0.0008797114851706136,
+      "fee": 1.1436249307189247e-07,
+      "impact": -0.0008014946030433131
+     }
+    },
+    "completion_rule": 0.9988382757566493,
+    "completion_bench": 0.9988382757566493,
+    "completion_diff_pp": 0.0,
+    "sd_ratio": 0.9982005036474741,
+    "resid_rule_mean": 0.00016833526875984246,
+    "resid_bench_mean": 0.00016833526875984246
+   },
+   "ACT_vs_VOL20": {
+    "n_pairs": 37118,
+    "n_dates": 74,
+    "mean_diff_bp": 0.0010296179317692564,
+    "bootstrap": {
+     "n_blocks": 15,
+     "mean": 0.0010296179317692564,
+     "ci": [
+      2.103698684824696e-05,
+      0.002326074497620405
+     ],
+     "block_ns": [
+      2518,
+      2536,
+      2522,
+      2558,
+      2550,
+      2488,
+      2478,
+      2552,
+      2586,
+      2552,
+      2562,
+      2504,
+      2360,
+      2372,
+      1980
+     ],
+     "estimand": "sum(block paired costs)/sum(block counts) over 5-day blocks"
+    },
+    "attribution": {
+     "price": 0.0,
+     "fee": -5.612063520682161e-07,
+     "impact": 0.0010301791381213232
+    },
+    "attribution_by_side": {
+     "buy": {
+      "n": 18559,
+      "mean_diff_bp": -0.0032873540072176108,
+      "price": -0.004316971938986868,
+      "fee": -5.612063520682161e-07,
+      "impact": 0.0010301791381213232
+     },
+     "sell": {
+      "n": 18559,
+      "mean_diff_bp": 0.005346589870756123,
+      "price": 0.004316971938986868,
+      "fee": -5.612063520682161e-07,
+      "impact": 0.0010301791381213232
+     }
+    },
+    "completion_rule": 0.9978985936742282,
+    "completion_bench": 0.9978985936742282,
+    "completion_diff_pp": 0.0,
+    "sd_ratio": 0.9998089160268576,
+    "resid_rule_mean": 0.00032685549559755483,
+    "resid_bench_mean": 0.00032685549559755483,
+    "selection_changed": 658,
+    "method_changed": 656,
+    "h_changed": 482,
+    "actual_q_path_changed": 166
+   },
+   "vol20_non_asap": 1600,
+   "act_non_asap": 1446
+  }
+ },
+ "verdict": {
+  "val": {
+   "incomplete_coverage": true,
+   "ACT_vs_ASAP": {
+    "C1_cost": false,
+    "C2_ci": true,
+    "C3_completion": true,
+    "C4_sd": true,
+    "pass": false
+   },
+   "ACT_vs_A": {
+    "C1_cost": false,
+    "C2_ci": false,
+    "C3_completion": true,
+    "C4_sd": true,
+    "pass": false
+   },
+   "pass": false
+  },
+  "test": {
+   "incomplete_coverage": true,
+   "ACT_vs_ASAP": {
+    "C1_cost": false,
+    "C2_ci": true,
+    "C3_completion": true,
+    "C4_sd": true,
+    "pass": false
+   },
+   "ACT_vs_A": {
+    "C1_cost": false,
+    "C2_ci": false,
+    "C3_completion": true,
+    "C4_sd": true,
+    "pass": false
+   },
+   "pass": false
+  },
+  "overall": "INCOMPLETE_COVERAGE"
+ },
+ "cases": [
+  {
+   "kind": "named",
+   "product": "RB",
+   "window": "am",
+   "date": 20260701,
+   "size_idx": 1,
+   "D": 60,
+   "side": "buy",
+   "Q": 1068,
+   "act_pre": 1.2948947049366122,
+   "s": 1.1543178886529266,
+   "act_arm": "asap0",
+   "vol20_arm": "asap0",
+   "a_arm": "asap0",
+   "act_status": "OK",
+   "ACT_total": -0.866267549818839,
+   "VOL20_total": -0.866267549818839,
+   "ASAP_total": -0.866267549818839,
+   "A_total": -0.866267549818839
+  },
+  {
+   "kind": "named",
+   "product": "CU",
+   "window": "am",
+   "date": 20260701,
+   "size_idx": 1,
+   "D": 60,
+   "side": "buy",
+   "Q": 149,
+   "act_pre": 1.0040263856763472,
+   "s": 1.0021070006550639,
+   "act_arm": "asap0",
+   "vol20_arm": "asap0",
+   "a_arm": "asap0",
+   "act_status": "OK",
+   "ACT_total": 0.8516886481057062,
+   "VOL20_total": 0.8516886481057062,
+   "ASAP_total": 0.8516886481057062,
+   "A_total": 0.8516886481057062
+  },
+  {
+   "kind": "named",
+   "product": "IF",
+   "window": "am",
+   "date": 20260701,
+   "size_idx": 1,
+   "D": 60,
+   "side": "buy",
+   "Q": 199,
+   "act_pre": 0.8322508900954108,
+   "s": 0.9122171811479345,
+   "act_arm": "asap0",
+   "vol20_arm": "asap0",
+   "a_arm": "asap0",
+   "act_status": "OK",
+   "ACT_total": 0.03479115029705415,
+   "VOL20_total": 0.03479115029705415,
+   "ASAP_total": 0.03479115029705415,
+   "A_total": 0.03479115029705415
+  },
+  {
+   "kind": "named",
+   "product": "SC",
+   "window": "night",
+   "date": 20260701,
+   "size_idx": 1,
+   "D": 60,
+   "side": "buy",
+   "Q": 65,
+   "act_pre": 2.101802839504575,
+   "s": 1.5765715187754656,
+   "act_arm": "asap0",
+   "vol20_arm": "asap0",
+   "a_arm": "asap0",
+   "act_status": "OK",
+   "ACT_total": -2.634553471402639,
+   "VOL20_total": -2.634553471402639,
+   "ASAP_total": -2.634553471402639,
+   "A_total": -2.634553471402639
+  },
+  {
+   "kind": "first_switch",
+   "product": "P",
+   "window": "pm",
+   "date": 20260105,
+   "size_idx": 1,
+   "D": 15,
+   "side": "buy",
+   "Q": 566,
+   "act_pre": 3.3340896360529504,
+   "s": 2.2214250664141035,
+   "act_arm": "asap0",
+   "vol20_arm": "shape5",
+   "a_arm": "twap5",
+   "ACT_total": -2.929286298445067,
+   "VOL20_total": -6.856523816427375,
+   "ASAP_total": -2.929286298445067,
+   "A_total": -7.281810624701059
+  },
+  {
+   "kind": "first_refusal",
+   "product": "AU",
+   "window": "pm",
+   "date": 20260105,
+   "size_idx": 2,
+   "D": 60,
+   "side": "buy",
+   "Q": 1042,
+   "act_pre": 0.5354967709314885,
+   "s": 0.7569262642483618,
+   "act_arm": "",
+   "vol20_arm": "asap0",
+   "a_arm": "",
+   "act_status": "NO_FEASIBLE"
+  }
+ ],
+ "assertions": [
+  {
+   "check": "keys_unique",
+   "ok": true,
+   "rows": 148968
+  },
+  {
+   "check": "unit_sides_total",
+   "ok": true,
+   "got": 148968
+  },
+  {
+   "check": "sides:train",
+   "ok": true
+  },
+  {
+   "check": "E:train",
+   "ok": true,
+   "got": 37480
+  },
+  {
+   "check": "E_A:train",
+   "ok": true,
+   "got": 34002
+  },
+  {
+   "check": "sides:val",
+   "ok": true
+  },
+  {
+   "check": "E:val",
+   "ok": true,
+   "got": 20182
+  },
+  {
+   "check": "E_A:val",
+   "ok": true,
+   "got": 17460
+  },
+  {
+   "check": "sides:test",
+   "ok": true
+  },
+  {
+   "check": "E:test",
+   "ok": true,
+   "got": 38344
+  },
+  {
+   "check": "E_A:test",
+   "ok": true,
+   "got": 33282
+  },
+  {
+   "check": "vol20_matches_R0:val",
+   "ok": true,
+   "compared": 30456,
+   "mismatch": 0
+  },
+  {
+   "check": "vol20_matches_R0:test",
+   "ok": true,
+   "compared": 58176,
+   "mismatch": 0
+  },
+  {
+   "check": "realised_cost_reconciles",
+   "ok": true,
+   "mismatches": 0
+  },
+  {
+   "check": "refusals_not_zero_cost",
+   "ok": true
+  },
+  {
+   "check": "fee_and_impact_not_overridden",
+   "ok": true,
+   "fee_mismatch": 0,
+   "impact_mismatch": 0,
+   "sampled": 300
+  },
+  {
+   "check": "future_perturbation_act_inputs",
+   "ok": true,
+   "cases": [
+    {
+     "product": "RB",
+     "window": "am",
+     "date": 20260701,
+     "feature_invariant": true,
+     "s": 1.1543178886529266
+    },
+    {
+     "product": "CU",
+     "window": "am",
+     "date": 20260701,
+     "feature_invariant": true,
+     "s": 1.0021070006550639
+    },
+    {
+     "product": "IF",
+     "window": "am",
+     "date": 20260701,
+     "feature_invariant": true,
+     "s": 0.9122171811479345
+    },
+    {
+     "product": "SC",
+     "window": "night",
+     "date": 20260701,
+     "feature_invariant": true,
+     "s": 1.5765715187754656
+    }
+   ]
+  }
+ ],
+ "runtime_s": 27.7,
+ "notes": [
+  "VAL and TEST were already inspected; this is a retrospective time-ordered check",
+  "a is not calibrated; positive-a results are conditional scenarios",
+  "refusals are unexecuted (completion 0, residual Q) and are never counted as zero cost",
+  "duration change = parsed h differs; selection change may change the method without changing h (e.g. asap0 vs twap5 changes both, but some switches keep the same h)",
+  "C3 on the full fixed E counts refusals as unexecuted; the conditional (planned-only) C3 is a diagnostic, not the main criterion"
+ ],
+ "full_E": {
+  "val": {
+   "E_units": 20182,
+   "missing": 654,
+   "coverage": 0.9675948865325538,
+   "completion_ACT_fullE": 0.9660093152313943,
+   "completion_ASAP_fullE": 0.995540580715489,
+   "completion_diff_pp_fullE": -2.953126548409474,
+   "residual_ACT_fullE": 0.03269904490237347,
+   "residual_ASAP_fullE": 0.0009078281531121671,
+   "rejected_group_n": 654,
+   "rejected_group_ASAP_completion": 0.9113149847094801,
+   "rejected_group_ASAP_residual": 0.018944439703988274,
+   "selection_changes": 380,
+   "method_changes": 380,
+   "duration_changes": 216,
+   "actual_path_changes": 106
+  },
+  "test": {
+   "E_units": 38344,
+   "missing": 1226,
+   "coverage": 0.9680262883371583,
+   "completion_ACT_fullE": 0.9659920717713332,
+   "completion_ASAP_fullE": 0.9944189442937618,
+   "completion_diff_pp_fullE": -2.8426872522428543,
+   "residual_ACT_fullE": 0.03229011637506755,
+   "residual_ASAP_fullE": 0.0009443776935785865,
+   "rejected_group_n": 1226,
+   "rejected_group_ASAP_completion": 0.8890701468189234,
+   "rejected_group_ASAP_residual": 0.01964029037274656,
+   "selection_changes": 658,
+   "method_changes": 656,
+   "duration_changes": 482,
+   "actual_path_changes": 166
+  }
+ }
+}

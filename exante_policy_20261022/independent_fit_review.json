@@ -1,0 +1,88 @@
+{
+ "reviewer": "协调方（Root）独立复核",
+ "copied_from": "/private/tmp/quantstudio-exante-independent-fit-check-20261022.json",
+ "copied_verbatim": true,
+ "payload_sha256": "47a320c6f72524814b64d73d36b437d465f6d085e74d7d7cd0d91f7d995cc0ea",
+ "annotation": "协调方（Root）独立重算：用原 TRAIN 回放数组、向量化同母单相对 ASAP 差分，重建 2513 个事件标签与 9 桶原始 rho。不是本会话作者实现的；本会话只做原样复制与解读，未据此改动技能代码、参数或阈值。",
+ "content": {
+  "independent_method": "vectorized cached per-arm differences versus the same-unit ASAP, then one slope per product-window-date; TRAIN only",
+  "identified_events": 2513,
+  "unidentified_events": 1,
+  "bucket_checks": [
+   {
+    "bucket": 0,
+    "n": 228,
+    "n_matches": true,
+    "rho_raw_independent": -0.008557130889911592,
+    "rho_saved": -0.00855713,
+    "max_error": 8.899115923333145e-10
+   },
+   {
+    "bucket": 1,
+    "n": 289,
+    "n_matches": true,
+    "rho_raw_independent": 0.006658482516326538,
+    "rho_saved": 0.00665848,
+    "max_error": 2.5163265386304867e-09
+   },
+   {
+    "bucket": 2,
+    "n": 321,
+    "n_matches": true,
+    "rho_raw_independent": -0.007854577522488625,
+    "rho_saved": -0.00785458,
+    "max_error": 2.477511374873731e-09
+   },
+   {
+    "bucket": 3,
+    "n": 388,
+    "n_matches": true,
+    "rho_raw_independent": 0.004002552462009462,
+    "rho_saved": 0.00400255,
+    "max_error": 2.462009462619874e-09
+   },
+   {
+    "bucket": 4,
+    "n": 265,
+    "n_matches": true,
+    "rho_raw_independent": -0.0038933909529250544,
+    "rho_saved": -0.00389339,
+    "max_error": 9.529250544031143e-10
+   },
+   {
+    "bucket": 5,
+    "n": 184,
+    "n_matches": true,
+    "rho_raw_independent": -0.010392849102319085,
+    "rho_saved": -0.01039285,
+    "max_error": 8.976809157124066e-10
+   },
+   {
+    "bucket": 6,
+    "n": 222,
+    "n_matches": true,
+    "rho_raw_independent": 0.010327973314037658,
+    "rho_saved": 0.01032797,
+    "max_error": 3.314037657145552e-09
+   },
+   {
+    "bucket": 7,
+    "n": 283,
+    "n_matches": true,
+    "rho_raw_independent": 0.01563671311505875,
+    "rho_saved": 0.01563671,
+    "max_error": 3.1150587491424186e-09
+   },
+   {
+    "bucket": 8,
+    "n": 333,
+    "n_matches": true,
+    "rho_raw_independent": -0.009659435572675654,
+    "rho_saved": -0.00965944,
+    "max_error": 4.427324345676609e-09
+   }
+  ],
+  "all_count_match": true,
+  "max_raw_rho_error": 4.427324345676609e-09
+ }
+}

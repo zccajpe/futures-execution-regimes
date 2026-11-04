@@ -1,0 +1,824 @@
+{
+ "stage": "volume_activity_20261022_stage0_rev1",
+ "scenario": {
+  "a_bp": 0.5,
+  "risk_k": 1.0,
+  "cap_frac": 0.1,
+  "phi": 1.0
+ },
+ "E_definition": "ASAP predicted completion >= 0.95 on the 20 historical paths (19/20 or 20/20)",
+ "units": {
+  "unit_rows": 74484,
+  "unit_sides": 148968,
+  "splits": {
+   "train": 60336,
+   "val": 30456,
+   "test": 58176
+  }
+ },
+ "summary": {
+  "train": {
+   "all_inputs": {
+    "total": 60336,
+    "ONLY_ASAP": 34402,
+    "ASAP_PLUS": 3078,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 22856,
+    "shares": {
+     "ONLY_ASAP": 0.5701736939803765,
+     "ASAP_PLUS": 0.05101431980906921,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.37881198621055423
+    },
+    "n_dates": 77
+   },
+   "old_E": {
+    "total": 37480,
+    "ONLY_ASAP": 34402,
+    "ASAP_PLUS": 3078,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.9178762006403415,
+     "ASAP_PLUS": 0.08212379935965848,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 77
+   },
+   "E_with_A_defined": {
+    "total": 34002,
+    "ONLY_ASAP": 31840,
+    "ASAP_PLUS": 2162,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.9364155049702959,
+     "ASAP_PLUS": 0.06358449502970413,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 77
+   },
+   "E_with_A_missing": {
+    "total": 3478,
+    "ONLY_ASAP": 2562,
+    "ASAP_PLUS": 916,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.7366302472685451,
+     "ASAP_PLUS": 0.26336975273145485,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 0
+   },
+   "A_defined_all_units": {
+    "total": 34746,
+    "ONLY_ASAP": 31840,
+    "ASAP_PLUS": 2162,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 744,
+    "shares": {
+     "ONLY_ASAP": 0.916364473608473,
+     "ASAP_PLUS": 0.06222298969665573,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.02141253669487135
+    },
+    "n_dates": 0
+   }
+  },
+  "val": {
+   "all_inputs": {
+    "total": 30456,
+    "ONLY_ASAP": 18318,
+    "ASAP_PLUS": 1864,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 10274,
+    "shares": {
+     "ONLY_ASAP": 0.6014578408195429,
+     "ASAP_PLUS": 0.061203047018649856,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.3373391121618072
+    },
+    "n_dates": 39
+   },
+   "old_E": {
+    "total": 20182,
+    "ONLY_ASAP": 18318,
+    "ASAP_PLUS": 1864,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.9076404717074621,
+     "ASAP_PLUS": 0.0923595282925379,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 39
+   },
+   "E_with_A_defined": {
+    "total": 17460,
+    "ONLY_ASAP": 16304,
+    "ASAP_PLUS": 1156,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.9337915234822451,
+     "ASAP_PLUS": 0.06620847651775487,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 39
+   },
+   "E_with_A_missing": {
+    "total": 2722,
+    "ONLY_ASAP": 2014,
+    "ASAP_PLUS": 708,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.7398971344599559,
+     "ASAP_PLUS": 0.2601028655400441,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 0
+   },
+   "A_defined_all_units": {
+    "total": 17540,
+    "ONLY_ASAP": 16304,
+    "ASAP_PLUS": 1156,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 80,
+    "shares": {
+     "ONLY_ASAP": 0.9295324971493729,
+     "ASAP_PLUS": 0.06590649942987457,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.004561003420752566
+    },
+    "n_dates": 0
+   }
+  },
+  "test": {
+   "all_inputs": {
+    "total": 58176,
+    "ONLY_ASAP": 34912,
+    "ASAP_PLUS": 3432,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 19832,
+    "shares": {
+     "ONLY_ASAP": 0.6001100110011001,
+     "ASAP_PLUS": 0.05899339933993399,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.3408965896589659
+    },
+    "n_dates": 74
+   },
+   "old_E": {
+    "total": 38344,
+    "ONLY_ASAP": 34912,
+    "ASAP_PLUS": 3432,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.9104944711036929,
+     "ASAP_PLUS": 0.08950552889630711,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 74
+   },
+   "E_with_A_defined": {
+    "total": 33282,
+    "ONLY_ASAP": 31162,
+    "ASAP_PLUS": 2120,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.9363019049335978,
+     "ASAP_PLUS": 0.06369809506640225,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 74
+   },
+   "E_with_A_missing": {
+    "total": 5062,
+    "ONLY_ASAP": 3750,
+    "ASAP_PLUS": 1312,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 0,
+    "shares": {
+     "ONLY_ASAP": 0.7408139075464243,
+     "ASAP_PLUS": 0.25918609245357566,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0
+    },
+    "n_dates": 0
+   },
+   "A_defined_all_units": {
+    "total": 33500,
+    "ONLY_ASAP": 31162,
+    "ASAP_PLUS": 2120,
+    "ONLY_NON_ASAP": 0,
+    "NONE": 218,
+    "shares": {
+     "ONLY_ASAP": 0.9302089552238806,
+     "ASAP_PLUS": 0.06328358208955225,
+     "ONLY_NON_ASAP": 0.0,
+     "NONE": 0.0065074626865671645
+    },
+    "n_dates": 0
+   }
+  }
+ },
+ "exclusions": {
+  "scope": "global over all 148,968 unit-sides unless a split key is used",
+  "by_completion": {
+   "twap5": 57538,
+   "shape5": 56630,
+   "asap0": 52962,
+   "twap10": 27936,
+   "shape10": 27708,
+   "twap30": 19142,
+   "twap20": 13716,
+   "shape20": 13576,
+   "shape30": 17442,
+   "shape60": 12492,
+   "twap60": 14012
+  },
+  "by_risk": {
+   "twap5": 86046,
+   "twap10": 82228,
+   "shape5": 85756,
+   "shape10": 81618,
+   "twap20": 60490,
+   "twap30": 55342,
+   "shape20": 60622,
+   "shape30": 57042,
+   "twap60": 23230,
+   "shape60": 24750
+  },
+  "by_completion_split": {
+   "train": {
+    "twap5": 24836,
+    "shape5": 24470,
+    "asap0": 22856,
+    "twap10": 12604,
+    "shape10": 12524,
+    "twap30": 8626,
+    "twap20": 6206,
+    "shape20": 6174,
+    "shape30": 7812,
+    "shape60": 5446,
+    "twap60": 5814
+   },
+   "val": {
+    "twap5": 11096,
+    "shape5": 10962,
+    "asap0": 10274,
+    "twap10": 5148,
+    "shape10": 5128,
+    "twap20": 2470,
+    "twap30": 3394,
+    "shape20": 2440,
+    "shape30": 3184,
+    "twap60": 2648,
+    "shape60": 2368
+   },
+   "test": {
+    "twap5": 21606,
+    "shape5": 21198,
+    "asap0": 19832,
+    "twap30": 7122,
+    "twap10": 10184,
+    "shape10": 10056,
+    "twap20": 5040,
+    "shape20": 4962,
+    "shape30": 6446,
+    "twap60": 5550,
+    "shape60": 4678
+   }
+  },
+  "by_risk_split": {
+   "train": {
+    "twap5": 33516,
+    "twap10": 31980,
+    "shape5": 33374,
+    "shape10": 31802,
+    "twap20": 23860,
+    "twap30": 21542,
+    "shape20": 23892,
+    "shape30": 22356,
+    "twap60": 9270,
+    "shape60": 9638
+   },
+   "val": {
+    "twap5": 18184,
+    "twap10": 17336,
+    "shape5": 18062,
+    "shape10": 17188,
+    "twap20": 12688,
+    "twap30": 11834,
+    "shape20": 12710,
+    "shape30": 12044,
+    "twap60": 4966,
+    "shape60": 5246
+   },
+   "test": {
+    "twap5": 34346,
+    "twap10": 32912,
+    "shape5": 34320,
+    "shape10": 32628,
+    "twap20": 23942,
+    "twap30": 21966,
+    "shape20": 24020,
+    "shape30": 22642,
+    "twap60": 8994,
+    "shape60": 9866
+   }
+  }
+ },
+ "path_variety": {
+  "train": {
+   "all_legal_distinct_targets_2plus": 60336,
+   "all_legal_distinct_hist_fills_2plus": 56914,
+   "all_legal_distinct_actual_fills_2plus": 47770,
+   "final_distinct_targets_2plus": 3078,
+   "final_distinct_hist_fills_2plus": 1686,
+   "final_distinct_actual_fills_2plus": 514
+  },
+  "val": {
+   "all_legal_distinct_targets_2plus": 30456,
+   "all_legal_distinct_hist_fills_2plus": 28742,
+   "all_legal_distinct_actual_fills_2plus": 24630,
+   "final_distinct_targets_2plus": 1864,
+   "final_distinct_hist_fills_2plus": 898,
+   "final_distinct_actual_fills_2plus": 260
+  },
+  "test": {
+   "all_legal_distinct_targets_2plus": 58176,
+   "all_legal_distinct_hist_fills_2plus": 54834,
+   "all_legal_distinct_actual_fills_2plus": 47096,
+   "final_distinct_targets_2plus": 3432,
+   "final_distinct_hist_fills_2plus": 1600,
+   "final_distinct_actual_fills_2plus": 476
+  }
+ },
+ "gate": {
+  "rule": "TRAIN and old E only: exists a unit with >=2 final-feasible arms whose 20-path historical fill matrices differ",
+  "units_in_E": 18740,
+  "units_with_2plus_final": 1539,
+  "units_with_2plus_distinct_paths": 843,
+  "share_of_E": 0.044983991462113126,
+  "dates_with_choice": 77,
+  "status": "READY_FOR_FORECAST_REVIEW",
+  "examples": [
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260105,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260106,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260107,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260108,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260109,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260112,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260113,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260114,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260115,
+    "size": 2,
+    "D": 60
+   },
+   {
+    "product": "CU",
+    "window": "am",
+    "date": 20260116,
+    "size": 2,
+    "D": 60
+   }
+  ]
+ },
+ "crosscheck_original_selection": {
+  "val": {
+   "compared": 30456,
+   "mismatch": 0,
+   "keys_only_in_reference": 0,
+   "keys_only_in_stage0": 0,
+   "key_sets_equal": true,
+   "examples": []
+  },
+  "test": {
+   "compared": 58176,
+   "mismatch": 0,
+   "keys_only_in_reference": 0,
+   "keys_only_in_stage0": 0,
+   "key_sets_equal": true,
+   "examples": []
+  }
+ },
+ "future_perturbation": [
+  {
+   "product": "RB",
+   "window": "am",
+   "date": 20260701,
+   "size": 1,
+   "D": 60,
+   "Q": 1068,
+   "status": "ok",
+   "invariant": {
+    "ref_history": true,
+    "arm_stats": true,
+    "risk": true,
+    "feasible_set": true,
+    "chosen_arm": true,
+    "gate_input": true
+   },
+   "all_invariant": true,
+   "negative_control_changes_ref": true
+  },
+  {
+   "product": "CU",
+   "window": "am",
+   "date": 20260701,
+   "size": 1,
+   "D": 60,
+   "Q": 149,
+   "status": "ok",
+   "invariant": {
+    "ref_history": true,
+    "arm_stats": true,
+    "risk": true,
+    "feasible_set": true,
+    "chosen_arm": true,
+    "gate_input": true
+   },
+   "all_invariant": true,
+   "negative_control_changes_ref": true
+  },
+  {
+   "product": "IF",
+   "window": "am",
+   "date": 20260701,
+   "size": 1,
+   "D": 60,
+   "Q": 199,
+   "status": "ok",
+   "invariant": {
+    "ref_history": true,
+    "arm_stats": true,
+    "risk": true,
+    "feasible_set": true,
+    "chosen_arm": true,
+    "gate_input": true
+   },
+   "all_invariant": true,
+   "negative_control_changes_ref": true
+  },
+  {
+   "product": "SC",
+   "window": "night",
+   "date": 20260701,
+   "size": 1,
+   "D": 60,
+   "Q": 65,
+   "status": "ok",
+   "invariant": {
+    "ref_history": true,
+    "arm_stats": true,
+    "risk": true,
+    "feasible_set": true,
+    "chosen_arm": true,
+    "gate_input": true
+   },
+   "all_invariant": true,
+   "negative_control_changes_ref": true
+  }
+ ],
+ "assertions": [
+  {
+   "check": "units_total",
+   "ok": true,
+   "got": 74484
+  },
+  {
+   "check": "unit_sides_total",
+   "ok": true,
+   "got": 148968
+  },
+  {
+   "check": "sides:train",
+   "ok": true,
+   "got": 60336
+  },
+  {
+   "check": "dates:train",
+   "ok": true,
+   "got": 77
+  },
+  {
+   "check": "E:train",
+   "ok": true,
+   "got": 37480
+  },
+  {
+   "check": "sides:val",
+   "ok": true,
+   "got": 30456
+  },
+  {
+   "check": "dates:val",
+   "ok": true,
+   "got": 39
+  },
+  {
+   "check": "E:val",
+   "ok": true,
+   "got": 20182
+  },
+  {
+   "check": "sides:test",
+   "ok": true,
+   "got": 58176
+  },
+  {
+   "check": "dates:test",
+   "ok": true,
+   "got": 74
+  },
+  {
+   "check": "E:test",
+   "ok": true,
+   "got": 38344
+  },
+  {
+   "check": "E_A:val",
+   "ok": true,
+   "got": 17460
+  },
+  {
+   "check": "E_A:test",
+   "ok": true,
+   "got": 33282
+  },
+  {
+   "check": "categories_sum:train:all_inputs",
+   "ok": true,
+   "total": 60336
+  },
+  {
+   "check": "categories_sum:train:old_E",
+   "ok": true,
+   "total": 37480
+  },
+  {
+   "check": "categories_sum:train:E_with_A_defined",
+   "ok": true,
+   "total": 34002
+  },
+  {
+   "check": "categories_sum:train:E_with_A_missing",
+   "ok": true,
+   "total": 3478
+  },
+  {
+   "check": "categories_sum:train:A_defined_all_units",
+   "ok": true,
+   "total": 34746
+  },
+  {
+   "check": "categories_sum:val:all_inputs",
+   "ok": true,
+   "total": 30456
+  },
+  {
+   "check": "categories_sum:val:old_E",
+   "ok": true,
+   "total": 20182
+  },
+  {
+   "check": "categories_sum:val:E_with_A_defined",
+   "ok": true,
+   "total": 17460
+  },
+  {
+   "check": "categories_sum:val:E_with_A_missing",
+   "ok": true,
+   "total": 2722
+  },
+  {
+   "check": "categories_sum:val:A_defined_all_units",
+   "ok": true,
+   "total": 17540
+  },
+  {
+   "check": "categories_sum:test:all_inputs",
+   "ok": true,
+   "total": 58176
+  },
+  {
+   "check": "categories_sum:test:old_E",
+   "ok": true,
+   "total": 38344
+  },
+  {
+   "check": "categories_sum:test:E_with_A_defined",
+   "ok": true,
+   "total": 33282
+  },
+  {
+   "check": "categories_sum:test:E_with_A_missing",
+   "ok": true,
+   "total": 5062
+  },
+  {
+   "check": "categories_sum:test:A_defined_all_units",
+   "ok": true,
+   "total": 33500
+  },
+  {
+   "check": "E_subset_of_all",
+   "ok": true
+  },
+  {
+   "check": "E_A_plus_E_noA_equals_E",
+   "ok": true
+  },
+  {
+   "check": "asap_weak_dominance",
+   "ok": true,
+   "n_violations": 0
+  },
+  {
+   "check": "choose_matches_manual_feasible",
+   "ok": true,
+   "n_mismatch": 0
+  },
+  {
+   "check": "matches_original_selection:val",
+   "ok": true,
+   "compared": 30456,
+   "mismatch": 0,
+   "keys_only_in_reference": 0,
+   "keys_only_in_stage0": 0,
+   "key_sets_equal": true,
+   "examples": []
+  },
+  {
+   "check": "matches_original_selection:test",
+   "ok": true,
+   "compared": 58176,
+   "mismatch": 0,
+   "keys_only_in_reference": 0,
+   "keys_only_in_stage0": 0,
+   "key_sets_equal": true,
+   "examples": []
+  },
+  {
+   "check": "unique_unit_side_keys",
+   "ok": true,
+   "unique": 148968,
+   "rows": 148968
+  },
+  {
+   "check": "no_skipped_units",
+   "ok": true,
+   "skipped": {}
+  },
+  {
+   "check": "future_perturbation_invariance",
+   "ok": true,
+   "cases": [
+    {
+     "product": "RB",
+     "window": "am",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 1068,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    },
+    {
+     "product": "CU",
+     "window": "am",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 149,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    },
+    {
+     "product": "IF",
+     "window": "am",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 199,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    },
+    {
+     "product": "SC",
+     "window": "night",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 65,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    }
+   ]
+  }
+ ],
+ "runtime_s": 20.6,
+ "pending_corrections": [
+  "exante_policy_20261022/EVALUATION.md section 9 writes that 95.8% of units 'can only choose ASAP' at k=1; that is a selection share, not a feasibility share. REPORT.md did not make that claim."
+ ]
+}

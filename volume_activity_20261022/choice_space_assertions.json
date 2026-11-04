@@ -1,0 +1,275 @@
+{
+ "assertions": [
+  {
+   "check": "units_total",
+   "ok": true,
+   "got": 74484
+  },
+  {
+   "check": "unit_sides_total",
+   "ok": true,
+   "got": 148968
+  },
+  {
+   "check": "sides:train",
+   "ok": true,
+   "got": 60336
+  },
+  {
+   "check": "dates:train",
+   "ok": true,
+   "got": 77
+  },
+  {
+   "check": "E:train",
+   "ok": true,
+   "got": 37480
+  },
+  {
+   "check": "sides:val",
+   "ok": true,
+   "got": 30456
+  },
+  {
+   "check": "dates:val",
+   "ok": true,
+   "got": 39
+  },
+  {
+   "check": "E:val",
+   "ok": true,
+   "got": 20182
+  },
+  {
+   "check": "sides:test",
+   "ok": true,
+   "got": 58176
+  },
+  {
+   "check": "dates:test",
+   "ok": true,
+   "got": 74
+  },
+  {
+   "check": "E:test",
+   "ok": true,
+   "got": 38344
+  },
+  {
+   "check": "E_A:val",
+   "ok": true,
+   "got": 17460
+  },
+  {
+   "check": "E_A:test",
+   "ok": true,
+   "got": 33282
+  },
+  {
+   "check": "categories_sum:train:all_inputs",
+   "ok": true,
+   "total": 60336
+  },
+  {
+   "check": "categories_sum:train:old_E",
+   "ok": true,
+   "total": 37480
+  },
+  {
+   "check": "categories_sum:train:E_with_A_defined",
+   "ok": true,
+   "total": 34002
+  },
+  {
+   "check": "categories_sum:train:E_with_A_missing",
+   "ok": true,
+   "total": 3478
+  },
+  {
+   "check": "categories_sum:train:A_defined_all_units",
+   "ok": true,
+   "total": 34746
+  },
+  {
+   "check": "categories_sum:val:all_inputs",
+   "ok": true,
+   "total": 30456
+  },
+  {
+   "check": "categories_sum:val:old_E",
+   "ok": true,
+   "total": 20182
+  },
+  {
+   "check": "categories_sum:val:E_with_A_defined",
+   "ok": true,
+   "total": 17460
+  },
+  {
+   "check": "categories_sum:val:E_with_A_missing",
+   "ok": true,
+   "total": 2722
+  },
+  {
+   "check": "categories_sum:val:A_defined_all_units",
+   "ok": true,
+   "total": 17540
+  },
+  {
+   "check": "categories_sum:test:all_inputs",
+   "ok": true,
+   "total": 58176
+  },
+  {
+   "check": "categories_sum:test:old_E",
+   "ok": true,
+   "total": 38344
+  },
+  {
+   "check": "categories_sum:test:E_with_A_defined",
+   "ok": true,
+   "total": 33282
+  },
+  {
+   "check": "categories_sum:test:E_with_A_missing",
+   "ok": true,
+   "total": 5062
+  },
+  {
+   "check": "categories_sum:test:A_defined_all_units",
+   "ok": true,
+   "total": 33500
+  },
+  {
+   "check": "E_subset_of_all",
+   "ok": true
+  },
+  {
+   "check": "E_A_plus_E_noA_equals_E",
+   "ok": true
+  },
+  {
+   "check": "asap_weak_dominance",
+   "ok": true,
+   "n_violations": 0
+  },
+  {
+   "check": "choose_matches_manual_feasible",
+   "ok": true,
+   "n_mismatch": 0
+  },
+  {
+   "check": "matches_original_selection:val",
+   "ok": true,
+   "compared": 30456,
+   "mismatch": 0,
+   "keys_only_in_reference": 0,
+   "keys_only_in_stage0": 0,
+   "key_sets_equal": true,
+   "examples": []
+  },
+  {
+   "check": "matches_original_selection:test",
+   "ok": true,
+   "compared": 58176,
+   "mismatch": 0,
+   "keys_only_in_reference": 0,
+   "keys_only_in_stage0": 0,
+   "key_sets_equal": true,
+   "examples": []
+  },
+  {
+   "check": "unique_unit_side_keys",
+   "ok": true,
+   "unique": 148968,
+   "rows": 148968
+  },
+  {
+   "check": "no_skipped_units",
+   "ok": true,
+   "skipped": {}
+  },
+  {
+   "check": "future_perturbation_invariance",
+   "ok": true,
+   "cases": [
+    {
+     "product": "RB",
+     "window": "am",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 1068,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    },
+    {
+     "product": "CU",
+     "window": "am",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 149,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    },
+    {
+     "product": "IF",
+     "window": "am",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 199,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    },
+    {
+     "product": "SC",
+     "window": "night",
+     "date": 20260701,
+     "size": 1,
+     "D": 60,
+     "Q": 65,
+     "status": "ok",
+     "invariant": {
+      "ref_history": true,
+      "arm_stats": true,
+      "risk": true,
+      "feasible_set": true,
+      "chosen_arm": true,
+      "gate_input": true
+     },
+     "all_invariant": true,
+     "negative_control_changes_ref": true
+    }
+   ]
+  }
+ ]
+}

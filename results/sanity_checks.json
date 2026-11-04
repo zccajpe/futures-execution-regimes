@@ -1,0 +1,195 @@
+{
+ "integer_and_conservation": {
+  "asap_0": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "twap_5": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "shape_5": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "twap_10": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "shape_10": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "twap_20": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "shape_20": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "twap_30": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "shape_30": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "twap_60": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  },
+  "shape_60": {
+   "int_target": true,
+   "target_monotone": true,
+   "target_eq_Q_after_h": true,
+   "int_fills": true,
+   "sum_le_Q": true,
+   "cap_respected": true,
+   "zero_vol_zero_fill": true,
+   "filled": 200
+  }
+ },
+ "impact_demo": {
+  "asap_L1": 20.0,
+  "twap_L1": 1.0000000000000002,
+  "asap_L05": 4.47213595499958,
+  "twap_L05": 1.0000000000000002,
+  "concentrated_higher": true,
+  "bound_paths_identical": true
+ },
+ "old_vs_new_impact_RB_20260302_Q200_cap10": {
+  "asap_0": {
+   "old": 0.1177655170789441,
+   "new_phi1": 4.328178431948646,
+   "new_phi05": 2.0802290000044312
+  },
+  "twap_5": {
+   "old": 0.1177655170789441,
+   "new_phi1": 1.066866015140581,
+   "new_phi05": 0.97632801236515
+  },
+  "shape_5": {
+   "old": 0.1177655170789441,
+   "new_phi1": 1.066866015140581,
+   "new_phi05": 0.97632801236515
+  },
+  "twap_10": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.5003706904013174,
+   "new_phi05": 0.681111608021878
+  },
+  "shape_10": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.5003706904013174,
+   "new_phi05": 0.681111608021878
+  },
+  "twap_20": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.3039572313353374,
+   "new_phi05": 0.5335802286791553
+  },
+  "shape_20": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.3039572313353374,
+   "new_phi05": 0.5335802286791553
+  },
+  "twap_30": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.25485343976664826,
+   "new_phi05": 0.4850718586463728
+  },
+  "shape_30": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.25485343976664826,
+   "new_phi05": 0.4850718586463728
+  },
+  "twap_60": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.1979779300736362,
+   "new_phi05": 0.4154470141714524
+  },
+  "shape_60": {
+   "old": 0.1177655170789441,
+   "new_phi1": 0.1979779300736362,
+   "new_phi05": 0.4154470141714524
+  }
+ },
+ "h1_equals_asap": true,
+ "markout_break": {
+  "10:14_plus5": null,
+  "10:10_plus5": 74,
+  "note": "None means the target clock minute is outside the continuous segment (NA)"
+ },
+ "wall_clock": {
+  "trade_minutes_10:14_to_10:31": 1,
+  "wall_minutes_10:14_to_10:31": 17
+ },
+ "side_sign": {
+  "buy_pricepart": 4.5,
+  "sell_pricepart": -4.5,
+  "fee_always_positive": true,
+  "filled": 100
+ }
+}

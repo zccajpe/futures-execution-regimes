@@ -1,0 +1,31 @@
+{
+ "status": "INPUT_REQUIRED",
+ "detail": "parent.Dmax_trading_minutes must be an integer in [1,60]; outside is not supported",
+ "execution_action": "NONE",
+ "production_eligibility": "INSUFFICIENT",
+ "scope": "research-only advisory output; not a production release and not an order permission",
+ "next_action": "the request was not modified and no default was substituted; fix or supply the missing/invalid input and re-run",
+ "mode": "baseline_first",
+ "plan": {
+  "source": "not_available",
+  "preference": "cost_first",
+  "preference_origin": "caller_structured",
+  "objective": null,
+  "method": null,
+  "h": null,
+  "arm": null,
+  "reason": "停止在输入或数据校验：parent.Dmax_trading_minutes must be an integer in [1,60]; outside is not supported；不产生方法或 h，也未调用 Jev。",
+  "missing": [
+   "parent.Dmax_trading_minutes must be an integer in [1,60]; outside is not supported"
+  ],
+  "note": "research-grade plan under the stated scenario only; h is the planned release duration and is not a completion guarantee; not an order and not a production permission"
+ },
+ "preference_routing": {
+  "preference": "cost_first",
+  "origin": "caller_structured",
+  "jev_called": false,
+  "jev": null,
+  "api_attempts": 0
+ },
+ "capability_note": "plan is a NEW field beside choice; the original status/choice fields are unchanged. Jev only maps text to a label; all numbers come from decision.py."
+}

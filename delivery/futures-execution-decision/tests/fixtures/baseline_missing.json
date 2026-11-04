@@ -1,0 +1,31 @@
+{
+ "parent": {
+  "symbol": "RB",
+  "side": "buy",
+  "qty_lots": 1186,
+  "release_trading_date": "20260803",
+  "release_label": "09:15",
+  "Dmax_trading_minutes": 60
+ },
+ "history_npz": "../../examples/RB_am_20d_20260803.npz",
+ "constraints": {
+  "min_completion_probability": 0.95,
+  "max_unfilled_lots": 0,
+  "risk_sd_budget_bp": 10.8444
+ },
+ "scenario": {
+  "cap_frac": 0.1,
+  "fee_spread_bp": 1.3,
+  "impact_a_bp": 0.0,
+  "phi": 1.0,
+  "terminal_price_change_bp": 0.0
+ },
+ "mode": "baseline_first",
+ "baseline_context": {
+  "product": "RB",
+  "window": "am",
+  "size_idx": 1,
+  "risk_k": 3.3
+ },
+ "business_note": "别拖太久"
+}

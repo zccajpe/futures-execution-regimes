@@ -1,0 +1,82 @@
+# ---------------------------------------------------------------- data (never publish)
+# Raw / derived minute market data, replay arrays, and any vendor export.
+*.npz
+*.npy
+*.parquet
+*.h5
+*.hdf5
+*.db
+*.sqlite
+*.sqlite3
+*.feather
+
+# Local prepared history used by the skill requests in this repository
+data/history/
+data/datasets/
+data/reference/
+raw/derived/
+raw/datasets/
+raw/tasks/
+raw/reference/
+
+# Synthetic demo inputs and outputs (regenerated locally, never committed)
+synthetic_demo/out/
+
+# ---------------------------------------------------------------- credentials / accounts
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+id_rsa*
+id_ed25519*
+.ssh/
+.netrc
+.npmrc
+.pypirc
+**/token*.json
+**/cookies*.json
+**/credentials*.json
+**/account*_snapshot*.json
+**/orders_*.csv
+**/trades_*.json
+**/fills_*.csv
+
+# ---------------------------------------------------------------- python / node
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+node_modules/
+.npm/
+npm-debug.log*
+yarn-error.log*
+
+# ---------------------------------------------------------------- local config / logs
+*.log
+unittest_full_output.log
+unittest_verbose_output.log
+logs/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---------------------------------------------------------------- editor / session exports
+AGENTS.md
+*.session.json
+*.session.jsonl
+conversation*.md
+transcript*.md

@@ -1,0 +1,24 @@
+{
+ "command": "env PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+ "tests": 111,
+ "failures": 0,
+ "errors": 0,
+ "status": "OK",
+ "checks": [
+  "input validation",
+  "history validation",
+  "future perturbation",
+  "new Q recompute",
+  "over-capacity",
+  "a bounds (null/range/point)",
+  "budget sensitivity",
+  "buy/sell b",
+  "baseline statuses",
+  "REFERENCE choice==baseline.arm",
+  "training-cutoff guard",
+  "relocated CLI",
+  "preference entry: structured skip / no-plan fallbacks / Jev trust boundary / relocated package",
+  "conditional-set wait exception: compare + structured wait_first gets a wait plan with predicted_cost_bp=null while status/choice/a/constraints stay unchanged"
+ ],
+ "note": "决策 17 + 事前 36 + 预测 9 + 契约 14 + 偏好入口 35"
+}

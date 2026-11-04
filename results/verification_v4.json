@@ -1,0 +1,18 @@
+{
+ "q_consistency": {
+  "checked": 146712,
+  "mismatches": 0
+ },
+ "impact_linearity": {
+  "cases": 7182,
+  "max_abs_error": 0.0001
+ },
+ "path_change": {
+  "n": 146712,
+  "share_changed": 0.7655
+ },
+ "per_day_variation": {
+  "cells": 1332,
+  "cells_with_multiple_h": 1283
+ }
+}

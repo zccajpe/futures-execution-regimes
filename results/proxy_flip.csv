@@ -1,0 +1,4 @@
+comparison,n_pairs,delta_close_bp,delta_vwap_bp,ranking
+asap0_minus_twap60,3436,0.3784,0.3866,same
+asap0_minus_shape60,3436,0.2836,0.2938,same
+twap60_minus_shape60,3436,-0.0947,-0.0928,same

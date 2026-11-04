@@ -1,0 +1,82 @@
+{
+ "version": "volume-20261022",
+ "beta": 0.5232982690757275,
+ "train_window": [
+  20260105,
+  20260430
+ ],
+ "n_events_train": 2514,
+ "n_dates_train": 77,
+ "signal": "act_pre (pre-release segment volume / prior-20-day same-segment mean; n_pre fixed by the grid: am 15, pm 5, night 15)",
+ "scale": "s = max(0, 1 + beta*(act_pre-1))",
+ "forecast": "pred60 = B60 * s ; per-minute curve = prior-20-day mean curve * s",
+ "stage1": {
+  "val": {
+   "mean_loss_sig": 0.25865333611313573,
+   "mean_loss_vol20": 0.3075687225184112,
+   "relative_reduction_pct": 15.903888407361507,
+   "ci": [
+    -0.06254441063249497,
+    -0.03673750155954952
+   ]
+  },
+  "test": {
+   "mean_loss_sig": 0.2737200743397113,
+   "mean_loss_vol20": 0.33951756875863237,
+   "relative_reduction_pct": 19.37970239934694,
+   "ci": [
+    -0.07809324730654038,
+    -0.05456783386005123
+   ]
+  },
+  "gate": "READY_FOR_EXECUTION_REVIEW"
+ },
+ "stage2": {
+  "verdict": "INCOMPLETE_COVERAGE",
+  "coverage": {
+   "val": 0.9675948865325538,
+   "test": 0.9680262883371583
+  },
+  "completion_diff_pp_fullE": {
+   "val": -2.953126548409474,
+   "test": -2.8426872522428543
+  },
+  "cost_vs_asap_bp": {
+   "val": -0.004813521655663655,
+   "test": -0.006423425197163815
+  },
+  "cost_vs_a_bp": {
+   "val": 0.003729561870783445,
+   "test": -0.0009054889923708882
+  },
+  "cost_vs_vol20_bp": {
+   "val": 0.0021161227310990895,
+   "test": 0.0010296179317692564
+  },
+  "reason": "ACT selection is not adopted: coverage gap (3.2% units refused), completion -2.95/-2.84pp on the fixed E, cost gain far below 0.5bp and slightly worse than unadjusted VOL20"
+ },
+ "scope": {
+  "products": [
+   "RB",
+   "I",
+   "CU",
+   "AU",
+   "SC",
+   "TA",
+   "RU",
+   "M",
+   "P",
+   "IF",
+   "IC",
+   "T"
+  ],
+  "windows": [
+   "am",
+   "pm",
+   "night"
+  ],
+  "cap_frac": 0.1,
+  "fee_spread_bp": 1.3,
+  "note": "forecast only; no selection, no rejection, no trading"
+ }
+}

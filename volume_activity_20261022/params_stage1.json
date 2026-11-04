@@ -1,0 +1,13 @@
+{
+ "beta": 0.5232982690757275,
+ "numerator": 677.1797687008528,
+ "denominator": 1294.0607846781486,
+ "n_events": 2514,
+ "n_dates": 77,
+ "s_formula": "max(0, 1 + beta*(act_pre-1))",
+ "train_window": [
+  20260105,
+  20260430
+ ],
+ "signal": "act_pre"
+}

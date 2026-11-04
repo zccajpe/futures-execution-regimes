@@ -1,0 +1,254 @@
+{
+ "a0.0_phi1.0_completion_first_k1.0": {
+  "queries": 30456,
+  "recommended": 20182,
+  "coverage": 0.6627,
+  "infeasible_reasons": {
+   "NO_FEASIBLE_COMPLETION": 10274
+  },
+  "buy": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 1.4172,
+   "asap_cost": 1.1497,
+   "twap_cost": 1.2863,
+   "shape_cost": 1.2845,
+   "oracle_cost": -5.4831,
+   "completion": 0.992,
+   "asap_completion": 0.9955,
+   "resid": 0.69,
+   "share_changed_arm": 0.6165,
+   "share_changed_path": 0.5679
+  },
+  "sell": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 1.6636,
+   "asap_cost": 1.4479,
+   "twap_cost": 1.2761,
+   "shape_cost": 1.2849,
+   "oracle_cost": -5.2576,
+   "completion": 0.991,
+   "asap_completion": 0.9955,
+   "resid": 0.7,
+   "share_changed_arm": 0.6989,
+   "share_changed_path": 0.6382
+  }
+ },
+ "a0.5_phi0.5_completion_first_k1.0": {
+  "queries": 30456,
+  "recommended": 20182,
+  "coverage": 0.6627,
+  "infeasible_reasons": {
+   "NO_FEASIBLE_COMPLETION": 10274
+  },
+  "buy": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 2.4843,
+   "asap_cost": 2.6114,
+   "twap_cost": 2.0753,
+   "shape_cost": 2.1095,
+   "oracle_cost": -4.433,
+   "completion": 0.9906,
+   "asap_completion": 0.9955,
+   "resid": 0.71,
+   "share_changed_arm": 0.7253,
+   "share_changed_path": 0.6838
+  },
+  "sell": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 2.6664,
+   "asap_cost": 2.9096,
+   "twap_cost": 2.1887,
+   "shape_cost": 2.1967,
+   "oracle_cost": -4.1977,
+   "completion": 0.9894,
+   "asap_completion": 0.9955,
+   "resid": 0.74,
+   "share_changed_arm": 0.7836,
+   "share_changed_path": 0.728
+  }
+ },
+ "a0.5_phi1.0_completion_first_k1.0": {
+  "queries": 30456,
+  "recommended": 20182,
+  "coverage": 0.6627,
+  "infeasible_reasons": {
+   "NO_FEASIBLE_COMPLETION": 10274
+  },
+  "buy": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 3.3212,
+   "asap_cost": 5.5176,
+   "twap_cost": 2.8634,
+   "shape_cost": 2.8356,
+   "oracle_cost": -3.0057,
+   "completion": 0.9882,
+   "asap_completion": 0.9955,
+   "resid": 0.78,
+   "share_changed_arm": 0.9089,
+   "share_changed_path": 0.8782
+  },
+  "sell": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 3.7089,
+   "asap_cost": 5.8158,
+   "twap_cost": 2.9592,
+   "shape_cost": 2.9371,
+   "oracle_cost": -2.7454,
+   "completion": 0.9873,
+   "asap_completion": 0.9955,
+   "resid": 0.82,
+   "share_changed_arm": 0.925,
+   "share_changed_path": 0.8874
+  }
+ },
+ "a0.5_phi1.0_cost_first_k0.25": {
+  "queries": 30456,
+  "recommended": 11934,
+  "coverage": 0.3918,
+  "infeasible_reasons": {
+   "NO_RISK_FEASIBLE": 18522
+  },
+  "buy": {
+   "n": 5967,
+   "days": 39,
+   "sel_cost": 3.8866,
+   "asap_cost": 5.2333,
+   "twap_cost": 3.6607,
+   "shape_cost": 3.5708,
+   "oracle_cost": -5.1246,
+   "completion": 0.9966,
+   "asap_completion": 0.9983,
+   "resid": 0.22,
+   "share_changed_arm": 0.7243,
+   "share_changed_path": 0.663
+  },
+  "sell": {
+   "n": 5967,
+   "days": 39,
+   "sel_cost": 4.4557,
+   "asap_cost": 6.0005,
+   "twap_cost": 3.9562,
+   "shape_cost": 3.9691,
+   "oracle_cost": -4.5843,
+   "completion": 0.996,
+   "asap_completion": 0.9983,
+   "resid": 0.29,
+   "share_changed_arm": 0.7639,
+   "share_changed_path": 0.6928
+  }
+ },
+ "a0.5_phi1.0_cost_first_k0.5": {
+  "queries": 30456,
+  "recommended": 23860,
+  "coverage": 0.7834,
+  "infeasible_reasons": {
+   "NO_RISK_FEASIBLE": 6596
+  },
+  "buy": {
+   "n": 11930,
+   "days": 39,
+   "sel_cost": 3.3895,
+   "asap_cost": 5.2702,
+   "twap_cost": 3.4152,
+   "shape_cost": 3.3205,
+   "oracle_cost": -2.1508,
+   "completion": 0.8479,
+   "asap_completion": 0.9008,
+   "resid": 70.09,
+   "share_changed_arm": 0.8546,
+   "share_changed_path": 0.776
+  },
+  "sell": {
+   "n": 11930,
+   "days": 39,
+   "sel_cost": 4.0308,
+   "asap_cost": 5.7821,
+   "twap_cost": 3.7688,
+   "shape_cost": 3.7138,
+   "oracle_cost": -1.65,
+   "completion": 0.8542,
+   "asap_completion": 0.9008,
+   "resid": 69.11,
+   "share_changed_arm": 0.879,
+   "share_changed_path": 0.7838
+  }
+ },
+ "a0.5_phi1.0_cost_first_k1.0": {
+  "queries": 30456,
+  "recommended": 30190,
+  "coverage": 0.9913,
+  "infeasible_reasons": {
+   "NO_RISK_FEASIBLE": 266
+  },
+  "buy": {
+   "n": 15095,
+   "days": 39,
+   "sel_cost": 3.3392,
+   "asap_cost": 5.0616,
+   "twap_cost": 3.1291,
+   "shape_cost": 3.1521,
+   "oracle_cost": -1.047,
+   "completion": 0.7138,
+   "asap_completion": 0.7836,
+   "resid": 255.04,
+   "share_changed_arm": 0.8593,
+   "share_changed_path": 0.7405
+  },
+  "sell": {
+   "n": 15095,
+   "days": 39,
+   "sel_cost": 3.7306,
+   "asap_cost": 5.3227,
+   "twap_cost": 3.4323,
+   "shape_cost": 3.4175,
+   "oracle_cost": -0.7912,
+   "completion": 0.7207,
+   "asap_completion": 0.7836,
+   "resid": 253.3,
+   "share_changed_arm": 0.8742,
+   "share_changed_path": 0.745
+  }
+ },
+ "a2.0_phi1.0_completion_first_k1.0": {
+  "queries": 30456,
+  "recommended": 20182,
+  "coverage": 0.6627,
+  "infeasible_reasons": {
+   "NO_FEASIBLE_COMPLETION": 10274
+  },
+  "buy": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 8.1981,
+   "asap_cost": 18.6213,
+   "twap_cost": 7.0396,
+   "shape_cost": 6.8251,
+   "oracle_cost": 3.0186,
+   "completion": 0.9869,
+   "asap_completion": 0.9955,
+   "resid": 0.83,
+   "share_changed_arm": 0.9604,
+   "share_changed_path": 0.9377
+  },
+  "sell": {
+   "n": 10091,
+   "days": 39,
+   "sel_cost": 8.5163,
+   "asap_cost": 18.9194,
+   "twap_cost": 7.1486,
+   "shape_cost": 7.0191,
+   "oracle_cost": 3.3655,
+   "completion": 0.9864,
+   "asap_completion": 0.9955,
+   "resid": 0.83,
+   "share_changed_arm": 0.9638,
+   "share_changed_path": 0.9406
+  }
+ }
+}

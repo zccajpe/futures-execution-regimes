@@ -1,0 +1,393 @@
+{
+ "stage": "volume_activity_20261022_stage1",
+ "signal": {
+  "name": "act_pre",
+  "source": "exante_policy_20261022/features_exante.npz",
+  "definition": "pre-release segment volume / prior-20-day same-segment mean; n_pre fixed per window (am 15, pm 5, night 15)"
+ },
+ "fit": {
+  "split": "train",
+  "beta": 0.5232982690757275,
+  "numerator": 677.1797687008528,
+  "denominator": 1294.0607846781486,
+  "n_events": 2514,
+  "n_dates": 77,
+  "date_min": 20260105,
+  "date_max": 20260430,
+  "formula": "X = act_pre - 1 ; Y = V60/B60 - 1 ; beta = sum(XY)/sum(X^2) ; s = max(0, 1 + beta X)"
+ },
+ "events": {
+  "total": 6207,
+  "usable": 6207,
+  "by_split": {
+   "train": 2514,
+   "val": 1269,
+   "test": 2424
+  },
+  "exclusions": {},
+  "calendar_days": {
+   "train": 77,
+   "val": 39,
+   "test": 74
+  }
+ },
+ "evaluation": {
+  "val": {
+   "n_events": 1269,
+   "n_dates": 39,
+   "mean_loss_sig": 0.25865333611313573,
+   "mean_loss_vol20": 0.3075687225184112,
+   "mean_diff": -0.048915386405275485,
+   "relative_reduction_pct": 15.903888407361507,
+   "bootstrap": {
+    "n_blocks": 8,
+    "mean": -0.04891538640527556,
+    "ci": [
+     -0.06254441063249497,
+     -0.03673750155954952
+    ],
+    "block_ns": [
+     156,
+     165,
+     165,
+     165,
+     165,
+     165,
+     156,
+     132
+    ],
+    "block_sums": [
+     -10.01313615770898,
+     -10.66976832121785,
+     -5.6854923528461105,
+     -5.600378750870478,
+     -3.8900782217522742,
+     -9.047478005081738,
+     -5.753199244100973,
+     -11.414094294716286
+    ],
+    "estimand": "sum(block loss differences) / sum(block event counts) over 5-day blocks"
+   },
+   "rmse_sig": 34268.85974724684,
+   "rmse_vol20": 36894.642930718524,
+   "rmse_norm_sig": 0.38369196953268747,
+   "rmse_norm_vol20": 0.44036566239551184,
+   "cumulative_diagnostics": {
+    "cum5": {
+     "mae_sig": 0.03678114233881844,
+     "mae_vol20": 0.04663961348978006,
+     "diff": -0.009858471150961619
+    },
+    "cum15": {
+     "mae_sig": 0.09143541099706885,
+     "mae_vol20": 0.11469660016484347,
+     "diff": -0.023261189167774615
+    },
+    "cum30": {
+     "mae_sig": 0.15416999973513995,
+     "mae_vol20": 0.1914332929172883,
+     "diff": -0.037263293182148355
+    }
+   },
+   "gate_pass": true
+  },
+  "test": {
+   "n_events": 2424,
+   "n_dates": 74,
+   "mean_loss_sig": 0.2737200743397113,
+   "mean_loss_vol20": 0.33951756875863237,
+   "mean_diff": -0.06579749441892108,
+   "relative_reduction_pct": 19.37970239934694,
+   "bootstrap": {
+    "n_blocks": 15,
+    "mean": -0.06579749441892106,
+    "ci": [
+     -0.07809324730654038,
+     -0.05456783386005123
+    ],
+    "block_ns": [
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     165,
+     156,
+     156,
+     132
+    ],
+    "block_sums": [
+     -12.593341670495457,
+     -5.952623957624427,
+     -6.8259662550424665,
+     -8.727164001196952,
+     -9.463986476677361,
+     -20.158214834003367,
+     -14.514836358603027,
+     -8.885585599130607,
+     -12.93984942913718,
+     -16.07885649662225,
+     -11.00333277721087,
+     -11.101421563871442,
+     -8.214081823008573,
+     -5.023135212466005,
+     -8.010730016374659
+    ],
+    "estimand": "sum(block loss differences) / sum(block event counts) over 5-day blocks"
+   },
+   "rmse_sig": 33197.48802640036,
+   "rmse_vol20": 39405.11579569123,
+   "rmse_norm_sig": 0.3936804808351987,
+   "rmse_norm_vol20": 0.4709474808523872,
+   "cumulative_diagnostics": {
+    "cum5": {
+     "mae_sig": 0.03816904847043489,
+     "mae_vol20": 0.04819190360737461,
+     "diff": -0.01002285513693972
+    },
+    "cum15": {
+     "mae_sig": 0.09041972184238992,
+     "mae_vol20": 0.11534460317219751,
+     "diff": -0.024924881329807594
+    },
+    "cum30": {
+     "mae_sig": 0.15095950136876027,
+     "mae_vol20": 0.19491660345761525,
+     "diff": -0.04395710208885498
+    }
+   },
+   "gate_pass": true
+  }
+ },
+ "gate": {
+  "rule": "VAL and TEST each: mean loss diff < 0 and 5-day block bootstrap upper bound < 0",
+  "val_pass": true,
+  "test_pass": true,
+  "status": "READY_FOR_EXECUTION_REVIEW"
+ },
+ "perturbation_cases": [
+  {
+   "product": "RB",
+   "window": "am",
+   "date": 20260701,
+   "status": "ok",
+   "feature_invariant": true,
+   "scale_invariant": true,
+   "forecast_curve_invariant": true,
+   "label_changed": true,
+   "s": 1.1543178886529266,
+   "B60": 106858.6
+  },
+  {
+   "product": "CU",
+   "window": "am",
+   "date": 20260701,
+   "status": "ok",
+   "feature_invariant": true,
+   "scale_invariant": true,
+   "forecast_curve_invariant": true,
+   "label_changed": true,
+   "s": 1.0021070006550639,
+   "B60": 14910.6
+  },
+  {
+   "product": "IF",
+   "window": "am",
+   "date": 20260701,
+   "status": "ok",
+   "feature_invariant": true,
+   "scale_invariant": true,
+   "forecast_curve_invariant": true,
+   "label_changed": true,
+   "s": 0.9122171811479345,
+   "B60": 19997.45
+  },
+  {
+   "product": "SC",
+   "window": "night",
+   "date": 20260701,
+   "status": "ok",
+   "feature_invariant": true,
+   "scale_invariant": true,
+   "forecast_curve_invariant": true,
+   "label_changed": true,
+   "s": 1.5765715187754656,
+   "B60": 6533.95
+  }
+ ],
+ "rejection_cases": [
+  {
+   "case": "prefix_bar_masked",
+   "rejected": true
+  },
+  {
+   "case": "reference_window_all_zero",
+   "rejected": true
+  }
+ ],
+ "assertions": [
+  {
+   "check": "event_keys_unique",
+   "ok": true,
+   "rows": 6207
+  },
+  {
+   "check": "events_total",
+   "ok": true,
+   "got": 6207
+  },
+  {
+   "check": "usable_events:train",
+   "ok": true,
+   "got": 2514
+  },
+  {
+   "check": "usable_events:val",
+   "ok": true,
+   "got": 1269
+  },
+  {
+   "check": "usable_events:test",
+   "ok": true,
+   "got": 2424
+  },
+  {
+   "check": "exclusions_accounted",
+   "ok": true,
+   "usable": 6207,
+   "excl": {}
+  },
+  {
+   "check": "beta_identifiable",
+   "ok": true,
+   "numerator": 677.1797687008528,
+   "denominator": 1294.0607846781486
+  },
+  {
+   "check": "B60_matches_cached_reference",
+   "ok": true,
+   "max_rel_diff": 0.0
+  },
+  {
+   "check": "scale_non_negative",
+   "ok": true
+  },
+  {
+   "check": "loss_reconciles:val",
+   "ok": true,
+   "recomputed": -0.04891538640527556
+  },
+  {
+   "check": "loss_reconciles:test",
+   "ok": true,
+   "recomputed": -0.06579749441892108
+  },
+  {
+   "check": "bootstrap_blocks:val",
+   "ok": true,
+   "got": 8,
+   "expected": 8
+  },
+  {
+   "check": "bootstrap_counts:val",
+   "ok": true,
+   "counted": 1269,
+   "events": 1269
+  },
+  {
+   "check": "bootstrap_blocks:test",
+   "ok": true,
+   "got": 15,
+   "expected": 15
+  },
+  {
+   "check": "bootstrap_counts:test",
+   "ok": true,
+   "counted": 2424,
+   "events": 2424
+  },
+  {
+   "check": "perturbation_cases",
+   "ok": true,
+   "cases": [
+    {
+     "product": "RB",
+     "window": "am",
+     "date": 20260701,
+     "status": "ok",
+     "feature_invariant": true,
+     "scale_invariant": true,
+     "forecast_curve_invariant": true,
+     "label_changed": true,
+     "s": 1.1543178886529266,
+     "B60": 106858.6
+    },
+    {
+     "product": "CU",
+     "window": "am",
+     "date": 20260701,
+     "status": "ok",
+     "feature_invariant": true,
+     "scale_invariant": true,
+     "forecast_curve_invariant": true,
+     "label_changed": true,
+     "s": 1.0021070006550639,
+     "B60": 14910.6
+    },
+    {
+     "product": "IF",
+     "window": "am",
+     "date": 20260701,
+     "status": "ok",
+     "feature_invariant": true,
+     "scale_invariant": true,
+     "forecast_curve_invariant": true,
+     "label_changed": true,
+     "s": 0.9122171811479345,
+     "B60": 19997.45
+    },
+    {
+     "product": "SC",
+     "window": "night",
+     "date": 20260701,
+     "status": "ok",
+     "feature_invariant": true,
+     "scale_invariant": true,
+     "forecast_curve_invariant": true,
+     "label_changed": true,
+     "s": 1.5765715187754656,
+     "B60": 6533.95
+    }
+   ]
+  },
+  {
+   "check": "rejection_paths",
+   "ok": true,
+   "cases": [
+    {
+     "case": "prefix_bar_masked",
+     "rejected": true
+    },
+    {
+     "case": "reference_window_all_zero",
+     "rejected": true
+    }
+   ]
+  },
+  {
+   "check": "gate_status_consistent",
+   "ok": true
+  }
+ ],
+ "runtime_s": 1.4,
+ "notes": [
+  "VAL and TEST were already inspected in earlier stages; this is a retrospective time-ordered check, not a fresh holdout",
+  "a>0 execution gains are not evaluated here; Stage 2 needs separate approval"
+ ]
+}

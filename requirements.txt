@@ -1,0 +1,26 @@
+# Python requirements for the published code paths.
+#
+# Verified with CPython 3.13.3 and NumPy 2.4.6.
+# CPython 3.10+ is expected to work: every script uses `from __future__ import annotations`
+# and the standard library only, apart from the packages listed below.
+#
+# Scope: the skill package (delivery/futures-execution-decision) and the research scripts
+# (scripts/, decision_research/, exante_policy_20261022/scripts/,
+# volume_activity_20261022/scripts/).
+
+# Required: array math for the skill package, the replay engine and every research script.
+numpy>=1.26
+
+# Only needed to re-run scripts/fix_math.py, which imports PIL at module level.
+# The import is unused inside that script, so no image is produced or required.
+Pillow>=10.0
+
+# --- Node.js -------------------------------------------------------------------------
+# scripts/fetch_min.mjs has no npm dependencies: it imports `node:fs/promises`, `node:fs`
+# and a QuantStudio headless client that must already exist on the operator's machine
+# (see DATA_PREPARATION.md). No package.json is shipped and no npm install is required.
+
+# --- Not required --------------------------------------------------------------------
+# No pandas, scipy, matplotlib, requests or network client is imported by any published
+# script. The skill package performs zero network calls unless the operator explicitly
+# passes --use-jev with an existing TYPESAFE_API_KEY in the environment.
